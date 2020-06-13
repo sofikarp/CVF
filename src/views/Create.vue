@@ -1,6 +1,12 @@
 <template>
   <LayoutCard title="New CVF">
-    <el-form label-position="top" label-width="100px" :model="form" :rules="rules" ref="form">
+    <el-form
+      label-position="top"
+      label-width="100px"
+      :model="form"
+      :rules="rules"
+      ref="form"
+    >
       <el-form-item label="Property" prop="property">
         <el-input v-model="form.property"></el-input>
       </el-form-item>
@@ -18,6 +24,7 @@
 </template>
 <script>
 import LayoutCard from "@/components/LayoutCard";
+import { post } from "@/services/axios";
 export default {
   name: "create",
   components: { LayoutCard },
@@ -29,42 +36,42 @@ export default {
           {
             required: true,
             message: "This field is mandatory",
-            trigger: "change"
-          }
+            trigger: "change",
+          },
         ],
         identificator: [
           {
             required: true,
             message: "This field is mandatory",
-            trigger: "change"
-          }
+            trigger: "change",
+          },
         ],
         email: [
           {
             required: true,
             message: "This field is mandatory",
-            trigger: "change"
+            trigger: "change",
           },
           {
             type: "email",
             message: "Please input correct email address",
-            trigger: "change"
-          }
-        ]
-      }
+            trigger: "change",
+          },
+        ],
+      },
     };
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          console.log("ok");
+          const res = await post("/verifications", this.form);
+          this.$router.push({ name: "Guide", params: { id: res.data.id } });
         } else {
-          console.log("error submit!!");
           return false;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
