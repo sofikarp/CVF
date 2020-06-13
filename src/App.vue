@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <router-view />
+    <el-container>
+      <el-main>
+        <router-view />
+      </el-main>
+    </el-container>
   </div>
 </template>
-
-
+<style scoped>
+#app {
+  width: 100%;
+}
+</style>
