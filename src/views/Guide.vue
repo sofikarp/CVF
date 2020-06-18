@@ -1,9 +1,10 @@
 <template>
-  <div>Guide {{ id }}</div>
+  <div></div>
 </template>
 <script>
 export default {
   name: "guide",
-  props: ["id"],
+
+  props: ["id"]
 };
 </script>
