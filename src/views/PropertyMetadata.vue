@@ -27,15 +27,10 @@ import BackNext from "@/components/BackNext";
 export default {
   name: "property-metadata",
   components: { LayoutCard, Stepper, BackNext },
-  props: ["id"],
-  data() {
-    return {
-      form: { region: "World", merchantProvider: "Stripe" }
-    };
-  },
+  props: ["id", "form"],
   methods: {
     onNext() {
-      // saving form to api - odesílání dat do backendu
+      this.$emit("changed");
       //this.$router.push({ name: "", params: { id: this.id } }); přechod na další stránku
     }
   }
