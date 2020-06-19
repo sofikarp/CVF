@@ -24,6 +24,13 @@ const routes = [
     component: PropertyMetadata,
     props: true
   },
+  // {
+  //   path: "/last-page/:id",
+  //   name: "LastPage",
+  //   component: LastPage,
+  //   props: true
+  // },
+
 
 ];
 
