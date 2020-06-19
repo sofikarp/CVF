@@ -31,7 +31,8 @@ export default {
   methods: {
     onNext() {
       this.$emit("changed");
-      //this.$router.push({ name: "", params: { id: this.id } }); přechod na další stránku
+      // přechod na další stránku
+      this.$router.push({ name: "MandatoryFields", params: { id: this.id } });
     }
   }
 };
