@@ -20,21 +20,26 @@
         ></iframe>
       </section>
       <div class="buttonDiv">
-        <el-button class="nextButton" type="primary" size="medium">Start</el-button>
+        <BackNext :show-back="false" v-on:next="onNext" />
       </div>
     </LayoutCard>
   </div>
 </template>
 <script>
 import LayoutCard from "@/components/LayoutCard";
+import BackNext from "@/components/BackNext";
 export default {
   name: "guide",
-  components: { LayoutCard },
-  props: ["id"]
-  // methods: {
-  //   onNext() {
-  //     this.$router.push({ name: "RegionMerchantProvider", params: { id: this.id } });
-  //   }
+  components: { LayoutCard, BackNext },
+  props: ["id"],
+  methods: {
+    onNext() {
+      this.$router.push({
+        name: "RegionMerchantProvider",
+        params: { id: this.id }
+      });
+    }
+  }
 };
 </script>
 <style scoped>

@@ -24,8 +24,10 @@ export default {
     }
   },
   async mounted() {
-    const res = await get(`/verifications/${this.$route.params.id}`);
-    this.formData = res.data;
+    if (this.$route.params.id) {
+      const res = await get(`/verifications/${this.$route.params.id}`);
+      this.formData = res.data;
+    }
   }
 };
 </script>

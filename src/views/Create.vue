@@ -60,7 +60,7 @@ export default {
       this.$refs[formName].validate(async valid => {
         if (valid) {
           const res = await post("/verifications", this.form);
-          this.$router.push({ name: "Guide", params: { id: res.data.id } });
+          this.$router.push({ name: "Guide", params: { id: res.data._id } });
         } else {
           return false;
         }
