@@ -187,7 +187,19 @@ export default {
       }
     };
   },
+<<<<<<< HEAD
   
+=======
+
+  methods: {
+    onNext() {
+      this.$emit("changed");
+      // přechod na další stránku
+      this.$router.push({
+        name: "MandatoryFieldsPartTwo",
+        params: { id: this.id }
+      });
+>>>>>>> 3b3c2e0e96a351e494482d67c109d8a80d09bcd0
     }
     //submitForm(formName) {
     //   this.$refs["ruleForm1"].validate(valid => {

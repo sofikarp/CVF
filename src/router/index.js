@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Create from "../views/Create.vue";
 import Guide from "../views/Guide.vue";
 import MandatoryFields from "../views/MandatoryFields.vue";
+import MandatoryFieldsPartTwo from "../views/MandatoryFieldsPartTwo.vue";
 import PropertyMetadata from "../views/PropertyMetadata.vue";
 import LastPage from "../views/LastPage.vue";
 
@@ -33,6 +34,7 @@ const routes = [
     props: true
   },
   {
+<<<<<<< HEAD
     path: "/ip-address/:id",
     name: "IPAddress",
     component: IPAddress,
@@ -44,6 +46,20 @@ const routes = [
     component: LastPage,
     props: true
   },
+=======
+    path: "/mandatory-fields-part-two/:id",
+    name: "MandatoryFieldsPartTwo",
+    component: MandatoryFieldsPartTwo,
+    props: true
+  },
+
+  // {
+  //   path: "/last-page/:id",
+  //   name: "LastPage",
+  //   component: LastPage,
+  //   props: true
+  // },
+>>>>>>> 3b3c2e0e96a351e494482d67c109d8a80d09bcd0
 
 
 ];
