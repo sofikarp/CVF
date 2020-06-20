@@ -28,12 +28,27 @@ export default {
   components: { LayoutCard, Stepper, BackNext },
   props: ["id", "form"],
   data() {
+    const validateIpAddress = (rule, value, callback) => {
+      if (
+        /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
+          value
+        )
+      ) {
+        callback();
+      } else {
+        callback(new Error("Please input valid IP Address"));
+      }
+    };
     return {
       rules: {
         ipAddress: [
           {
             required: true,
             message: "Please input IP Address",
+            trigger: "change"
+          },
+          {
+            validator: validateIpAddress,
             trigger: "change"
           }
         ]
