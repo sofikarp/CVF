@@ -2,12 +2,12 @@
   <LayoutCard title="Region & Merchant Provider">
     <Stepper :active="2" />
     <div>
-      <h2>1. Company Information - part II</h2>
+      <h2>2. Company Information - part II</h2>
       <!-- Formulář Company representative 2. část-->
       <el-form
-        :model="ruleForm3"
+        :model="ruleForm2"
         :rules="rules"
-        ref="ruleForm3"
+        ref="ruleForm2"
         label-width="300px"
         class="demo-ruleForm"
         label="top"
@@ -19,7 +19,7 @@
           label="Would you like to accept and receive multiply currencies?"
           prop="multiplyCurrencies"
         >
-          <el-radio-group v-model="ruleForm3.multiplyCurrencies">
+          <el-radio-group v-model="ruleForm2.multiplyCurrencies">
             <el-radio label="Yes"></el-radio>
             <el-radio label="No"></el-radio>
           </el-radio-group>
@@ -33,20 +33,12 @@
           show-icon
         ></el-alert>
         <br />
-      </el-form>
-      <!-- Formulář - pro pole s validací number-->
 
-      <el-form
-        :model="numberValidateForm2"
-        ref="numberValidateForm2"
-        :rules="rules"
-        label-width="300px"
-        class="demo-ruleForm"
-        label="top"
-      >
+        <!-- Formulář - pro pole s validací number-->
+
         <!-- Pole IBAN. Validace na number-->
         <el-form-item label="IBAN / Bank Account Number" prop="iban">
-          <el-input v-model.number="numberValidateForm2.iban" autocomplete="off"></el-input>
+          <el-input v-model.number="ruleForm2.iban" autocomplete="off"></el-input>
           <el-popover
             placement="top-start"
             type="warning"
@@ -60,51 +52,42 @@
         </el-form-item>
         <!-- Pole SWIFT. Validace na number-->
         <el-form-item label="Swift / BIC / Routing Number" prop="swift">
-          <el-input v-model.number="numberValidateForm2.swift" autocomplete="off"></el-input>
+          <el-input v-model.number="ruleForm2.swift" autocomplete="off"></el-input>
         </el-form-item>
-      </el-form>
-      <!-- Formular. Validace na vše kromě number-->
-      <el-form
-        :model="ruleForm4"
-        :rules="rules"
-        ref="ruleForm4"
-        label-width="300px"
-        class="demo-ruleForm"
-        label="top"
-      >
+
         <!-- Popover, reaguje na najetí myší-->
         <!-- Pole Bank Currency. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Bank Account Currency" prop="bankAccountCurrency">
-          <el-input v-model="ruleForm4.bankAccountCurrency"></el-input>
+          <el-input v-model="ruleForm2.bankAccountCurrency"></el-input>
         </el-form-item>
         <!-- Pole Bank A. Holder - name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item
           label="Bank Account Holder / Beneficiary name"
           prop="bankAccountBeneficiaryName"
         >
-          <el-input v-model="ruleForm4.bankAccountBeneficiaryName"></el-input>
+          <el-input v-model="ruleForm2.bankAccountBeneficiaryName"></el-input>
         </el-form-item>
         <!-- Pole Bank A. Holder - address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item
           label="Bank Account Holder / Beneficiary address"
           prop="bankAccountBeneficiaryAddress"
         >
-          <el-input v-model="ruleForm4.bankAccountBeneficiaryAddress"></el-input>
+          <el-input v-model="ruleForm2.bankAccountBeneficiaryAddress"></el-input>
         </el-form-item>
 
         <!-- validace email -->
         <el-form-item label="Email address for Chargebacks Notifications" prop="emailCharge">
-          <el-input v-model="ruleForm4.emailCharge"></el-input>
+          <el-input v-model="ruleForm2.emailCharge"></el-input>
         </el-form-item>
         <!-- Pole TAX ID. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Company TAX ID" prop="companyTaxId">
-          <el-input v-model="ruleForm4.companyTaxId"></el-input>
+          <el-input v-model="ruleForm2.companyTaxId"></el-input>
         </el-form-item>
         <br />
 
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
-          <el-button @click="resetForm('ruleForm')">Reset</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm2')">Create</el-button>
+          <el-button @click="resetForm('ruleForm2')">Reset</el-button>
         </el-form-item>
         <BackNext :show-back="false" v-on:next="onNext" />
       </el-form>
@@ -122,21 +105,16 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      numberValidateForm2: {
+      ruleForm2: {
         num: "",
         iban: "",
-        swift: ""
-      },
-      ruleForm3: {
-        multiplyCurrencies: ""
-      },
-      ruleForm4: {
+        swift: "",
+        multiplyCurrencies: "",
         bankAccountCurrency: "",
         bankAccountBeneficiaryName: "",
         bankAccountBeneficiaryAddress: "",
         emailCharge: "",
-        companyTaxId: "",
-        num: ""
+        companyTaxId: ""
       },
       rules: {
         multiplyCurrencies: [
@@ -167,7 +145,7 @@ export default {
             message: "Swift must be a number"
           }
         ],
-        bankCurrency: [
+        bankAccountCurrency: [
           {
             required: true,
             message: "Please input Bank account Currency",
@@ -238,45 +216,31 @@ export default {
   },
   methods: {
     onNext() {
-      this.$emit("changed");
-      // přechod na další stránku
-      this.$router.push({
-        name: "CompanyRepresentative",
-        params: { id: this.id }
+      this.$refs["ruleForm2"].validate(async valid => {
+        if (valid) {
+          this.$emit("changed");
+          // přechod na další stránku
+          this.$router.push({
+            name: "CompanyRepresentative",
+            params: { id: this.id }
+          });
+        } else {
+          return false;
+        }
       });
     },
     submitForm() {
-      this.$refs["ruleForm3"].validate(valid => {
+      this.$refs["ruleForm2"].validate(valid => {
         if (valid) {
           alert("Please submit!");
         } else {
           console.log("Error submit!!");
-          return false;
-        }
-      });
-
-      this.$refs["numberValidateForm2"].validate(valid => {
-        if (valid) {
-          alert("Please submit!");
-        } else {
-          console.log("Error submit!!");
-          return false;
-        }
-      });
-
-      this.$refs["ruleForm4"].validate(valid => {
-        if (valid) {
-          alert("submit!");
-        } else {
-          console.log("error submit!!");
           return false;
         }
       });
     },
     resetForm() {
-      this.$refs["ruleForm3"].resetFields();
-      this.$refs["numberValidateForm2"].resetFields();
-      this.$refs["ruleForm4"].resetFields();
+      this.$refs["ruleForm2"].resetFields();
     }
   }
 };

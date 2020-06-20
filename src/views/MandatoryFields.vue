@@ -28,37 +28,20 @@
             <el-button>ℹ️ What is Property name?</el-button>
           </el-tooltip>
         </el-form-item>
-      </el-form>
-      <!-- Formulář - pro pole s validací number-->
-      <!-- Pole Company number. Validace na number-->
-      <el-form
-        :model="numberValidateForm"
-        ref="numberValidateForm"
-        :rules="rules"
-        label-width="300px"
-        class="demo-ruleForm"
-        label="top"
-      >
+
+        <!-- Pole Company number. Validace na number-->
+
         <el-form-item label="Company Registration Number" prop="registrationNumber">
-          <el-input v-model.number="numberValidateForm.registrationNumber" autocomplete="off"></el-input>
+          <el-input v-model.number="ruleForm1.registrationNumber" autocomplete="off"></el-input>
         </el-form-item>
-      </el-form>
-      <!-- Formulář--vše kromě polí s validací type number-->
-      <el-form
-        :model="ruleForm"
-        :rules="rules"
-        ref="ruleForm"
-        label-width="300px"
-        class="demo-ruleForm"
-        label="top"
-      >
+
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Company Registred Address" prop="registeredAddress">
-          <el-input v-model="ruleForm.registeredAddress"></el-input>
+          <el-input v-model="ruleForm1.registeredAddress"></el-input>
         </el-form-item>
         <!-- Pole Trading Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Trading Address" prop="tradingAddress">
-          <el-input v-model="ruleForm.tradingAddress"></el-input>
+          <el-input v-model="ruleForm1.tradingAddress"></el-input>
           <br />
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
@@ -74,13 +57,13 @@
         </el-form-item>
         <!-- validace website -->
         <el-form-item label="Website" prop="website">
-          <el-input v-model="ruleForm.website"></el-input>
+          <el-input v-model="ruleForm1.website"></el-input>
         </el-form-item>
         <br />
         <!-- button -->
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
-          <el-button @click="resetForm('ruleForm')">Reset</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm1')">Create</el-button>
+          <el-button @click="resetForm('ruleForm1')">Reset</el-button>
         </el-form-item>
         <BackNext :show-back="false" v-on:next="onNext" />
       </el-form>
@@ -101,12 +84,10 @@ export default {
     return {
       ruleForm1: {
         companyName: "",
-        propertyName: ""
-      },
-      numberValidateForm: {
-        registrationNumber: ""
-      },
-      ruleForm: {
+        propertyName: "",
+
+        registrationNumber: "",
+
         registeredAddress: "",
         tradingAddress: "",
         website: ""
@@ -190,43 +171,47 @@ export default {
 
   methods: {
     onNext() {
-      this.$emit("changed");
-      // přechod na další stránku
-      this.$router.push({
-        name: "MandatoryFieldsPartTwo",
-        params: { id: this.id }
-      });
-    },
-    submitForm() {
-      this.$refs["ruleForm1"].validate(valid => {
+      this.$refs["ruleForm1"].validate(async valid => {
         if (valid) {
-          alert("submit!");
+          this.$emit("changed");
+          // přechod na další stránku
+          this.$router.push({
+            name: "MandatoryFieldsPartTwo",
+            params: { id: this.id }
+          });
         } else {
-          console.log("error submit!!");
           return false;
         }
       });
-      this.$refs["numberValidateForm"].validate(valid => {
-        if (valid) {
-          alert("Please submit!");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
-      this.$refs["ruleForm"].validate(valid => {
-        if (valid) {
-          alert("Please submit!");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+
+      // submitForm() {
+      //   this.$refs["ruleForm1"].validate(valid => {
+      //    if (valid) {
+      //       alert("submit!");
+      //     } else {
+      //       console.log("error submit!!");
+      //       return false;
+      //    }
+      //   });
+      //    this.$refs["numberValidateForm"].validate(valid => {
+      //     if (valid) {
+      //       alert("Please submit!");
+      //     } else {
+      //       console.log("error submit!!");
+      //       return false;
+      //     }
+      //   });
+      //    this.$refs["ruleForm"].validate(valid => {
+      //     if (valid) {
+      //       alert("Please submit!");
+      //     } else {
+      //       console.log("error submit!!");
+      //       return false;
+      //     }
+      //    });
     },
     resetForm() {
       this.$refs["ruleForm1"].resetFields();
-      this.$refs["numberValidateForm"].resetFields();
-      this.$refs["ruleForm"].resetFields();
     }
   }
 };

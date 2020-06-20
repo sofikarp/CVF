@@ -10,37 +10,37 @@
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
-        :model="ruleForm5"
+        :model="ruleForm4"
         :rules="rules"
-        ref="ruleForm5"
+        ref="ruleForm4"
         label-width="300px"
         class="demo-ruleForm"
         label="top"
       >
         <!-- Pole First name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="First Name" prop="firstName">
-          <el-input v-model="ruleForm5.firstName"></el-input>
+          <el-input v-model="ruleForm4.firstName"></el-input>
         </el-form-item>
         <!-- Pole Last Name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Last Name" prop="lastName">
-          <el-input v-model="ruleForm5.lastName"></el-input>
+          <el-input v-model="ruleForm4.lastName"></el-input>
         </el-form-item>
         <!-- Pole Title. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Title or Position" prop="title">
-          <el-input v-model="ruleForm5.title"></el-input>
+          <el-input v-model="ruleForm4.title"></el-input>
         </el-form-item>
         <!-- Pole Date. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Date of Birth" required prop="dateBirth">
           <el-date-picker
             type="date"
             placeholder="Pick a date"
-            v-model="ruleForm5.dateBirth"
+            v-model="ruleForm4.dateBirth"
             style="width: 100%;"
           ></el-date-picker>
         </el-form-item>
         <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Personal Address" prop="personalAddress">
-          <el-input v-model="ruleForm5.personalAddress"></el-input>
+          <el-input v-model="ruleForm4.personalAddress"></el-input>
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
             placement="top-start"
@@ -56,12 +56,12 @@
 
         <!-- validace email -->
         <el-form-item label="Email address" prop="emailAddress">
-          <el-input v-model="ruleForm5.emailAddress"></el-input>
+          <el-input v-model="ruleForm4.emailAddress"></el-input>
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
-          <el-button @click="resetForm('ruleForm')">Reset</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm4')">Create</el-button>
+          <el-button @click="resetForm('ruleForm4')">Reset</el-button>
         </el-form-item>
         <BackNext :show-back="false" v-on:next="onNext" />
       </el-form>
@@ -79,10 +79,8 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      numberValidateForm: {
-        num: ""
-      },
-      ruleForm5: {
+      ruleForm4: {
+        num: "",
         firstName: "",
         lastName: "",
         title: "",
@@ -169,11 +167,17 @@ export default {
   },
   methods: {
     onNext() {
-      this.$emit("changed");
-      // přechod na další stránku
-      this.$router.push({
-        name: "Ownership",
-        params: { id: this.id }
+      this.$refs["ruleForm4"].validate(async valid => {
+        if (valid) {
+          this.$emit("changed");
+          // přechod na další stránku
+          this.$router.push({
+            name: "Ownership",
+            params: { id: this.id }
+          });
+        } else {
+          return false;
+        }
       });
     },
     submitForm() {
