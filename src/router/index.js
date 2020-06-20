@@ -34,7 +34,12 @@ const routes = [
     props: true
   },
   {
-<<<<<<< HEAD
+    path: "/mandatory-fields-part-two/:id",
+    name: "MandatoryFieldsPartTwo",
+    component: MandatoryFieldsPartTwo,
+    props: true
+  },
+  {
     path: "/ip-address/:id",
     name: "IPAddress",
     component: IPAddress,
@@ -46,20 +51,6 @@ const routes = [
     component: LastPage,
     props: true
   },
-=======
-    path: "/mandatory-fields-part-two/:id",
-    name: "MandatoryFieldsPartTwo",
-    component: MandatoryFieldsPartTwo,
-    props: true
-  },
-
-  // {
-  //   path: "/last-page/:id",
-  //   name: "LastPage",
-  //   component: LastPage,
-  //   props: true
-  // },
->>>>>>> 3b3c2e0e96a351e494482d67c109d8a80d09bcd0
 
 
 ];
