@@ -27,8 +27,7 @@
         <el-upload
           class="upload-demo"
           ref="upload"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :auto-upload="false"
+          :action="`https://cvf.jiprochazka.com/files/upload/${id}/business-register`"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
           :file-list="fileList"
