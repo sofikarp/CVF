@@ -31,7 +31,7 @@ import BackNext from "@/components/BackNext";
 export default {
   name: "guide",
   components: { LayoutCard, BackNext },
-  props: ["id"],
+  props: ["id", "form"],
   methods: {
     onNext() {
       this.$router.push({

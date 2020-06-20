@@ -56,19 +56,19 @@ const routes = [
     props: true
   },
   {
-    path: "/last-page",
+    path: "/last-page/:id",
     name: "LastPage",
     component: LastPage,
     props: true
   },
   {
-    path: "/ownership:id",
+    path: "/ownership/:id",
     name: "Ownership",
     component: Ownership,
     props: true
   },
   {
-    path: "/uploades:id",
+    path: "/uploades/:id",
     name: "Uploades",
     component: Uploades,
     props: true
