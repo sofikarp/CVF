@@ -187,7 +187,8 @@ export default {
       }
     };
   },
-  methods: {
+  
+    }
     //submitForm(formName) {
     //   this.$refs["ruleForm1"].validate(valid => {
     //     if (valid) {
