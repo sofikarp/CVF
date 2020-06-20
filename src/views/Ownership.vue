@@ -380,7 +380,7 @@ export default {
       console.log(value);
     },
     submitForm() {
-      this.$refs[formName].validate(valid => {
+      this.$refs["ruleForm6"].validate(valid => {
         if (valid) {
           alert("submit!");
         } else {

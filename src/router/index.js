@@ -9,6 +9,7 @@ import Ownership from "../views/Ownership.vue";
 import PropertyMetadata from "../views/PropertyMetadata.vue";
 import IPAddress from "../views/IPAddress.vue";
 import LastPage from "../views/LastPage.vue";
+import Uploades from "../views/Uploades.vue";
 
 Vue.use(VueRouter);
 
@@ -61,12 +62,17 @@ const routes = [
     props: true
   },
   {
-    path: "/ownership",
+    path: "/ownership:id",
     name: "Ownership",
     component: Ownership,
     props: true
   },
-
+  {
+    path: "/uploades:id",
+    name: "Uploades",
+    component: Uploades,
+    props: true
+  },
 ];
 
 const router = new VueRouter({
