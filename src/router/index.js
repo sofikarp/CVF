@@ -6,6 +6,7 @@ import MandatoryFields from "../views/MandatoryFields.vue";
 import MandatoryFieldsPartTwo from "../views/MandatoryFieldsPartTwo.vue";
 import CompanyRepresentative from "../views/CompanyRepresentative.vue";
 import PropertyMetadata from "../views/PropertyMetadata.vue";
+import IPAddress from "../views/IPAddress.vue";
 import LastPage from "../views/LastPage.vue";
 
 Vue.use(VueRouter);
