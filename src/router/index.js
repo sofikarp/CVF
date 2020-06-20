@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Create from "../views/Create.vue";
 import Guide from "../views/Guide.vue";
 import MandatoryFields from "../views/MandatoryFields.vue";
+import MandatoryFieldsPartTwo from "../views/MandatoryFieldsPartTwo.vue";
 import PropertyMetadata from "../views/PropertyMetadata.vue";
 
 Vue.use(VueRouter);
@@ -31,6 +32,13 @@ const routes = [
     component: MandatoryFields,
     props: true
   },
+  {
+    path: "/mandatory-fields-part-two/:id",
+    name: "MandatoryFieldsPartTwo",
+    component: MandatoryFieldsPartTwo,
+    props: true
+  },
+
   // {
   //   path: "/last-page/:id",
   //   name: "LastPage",
