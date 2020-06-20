@@ -3,33 +3,13 @@
     <Stepper :active="5" />
     <div>
       <p>
-        For added security, we will need your IP ddress to certify this form. You can find your IP address HERE.
+        For added security, we will need your IP ddress to certify this form. You can find your IP address
+        <a href="https://whatismyipaddress.com/" target="_blank">HERE</a>.
         <br />Please do not forget to add in the "." - do, the format should be for example 1000.0.0.1
       </p>
-
-      <!-- <el-form
-        :model="numberValidateForm"
-        ref="numberValidateForm"
-        label-width="100px"
-        class="demo-ruleForm"
-      >
-        <el-form-item
-          label="ip-address"
-          prop="ipAddress"
-          :rules="[
-      { required: true, message: 'age is required'},
-      { type: 'number', message: 'age must be a number'}
-    ]"
-        >
-          <el-input type="ipAddress" v-model.number="numberValidateForm.age" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('numberValidateForm')">Submit</el-button>
-          <el-button @click="resetForm('numberValidateForm')">Reset</el-button>
-        </el-form-item>
-      </el-form>-->
     </div>
-    <BackNext :show-back="true" v-on:next="onNext" />
+
+    <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
   </LayoutCard>
 </template>
 <script>
@@ -46,6 +26,10 @@ export default {
       this.$emit("changed");
       // přechod na další stránku
       this.$router.push({ name: "Uploades", params: { id: this.id } });
+    },
+    onBack() {
+      // přechod na další stránku
+      this.$router.push({ name: "Ownership", params: { id: this.id } });
     }
   }
 };
