@@ -193,7 +193,7 @@ export default {
       this.$emit("changed");
       // přechod na další stránku
       this.$router.push({
-        name: "MandatoryieldsPartTwo",
+        name: "MandatoryFieldsPartTwo",
         params: { id: this.id }
       });
     },

@@ -168,6 +168,14 @@ export default {
     };
   },
   methods: {
+    onNext() {
+      this.$emit("changed");
+      // přechod na další stránku
+      this.$router.push({
+        name: "Ownership",
+        params: { id: this.id }
+      });
+    },
     submitForm() {
       this.$refs["ruleForm5"].validate(valid => {
         if (valid) {

@@ -5,6 +5,7 @@ import Guide from "../views/Guide.vue";
 import MandatoryFields from "../views/MandatoryFields.vue";
 import MandatoryFieldsPartTwo from "../views/MandatoryFieldsPartTwo.vue";
 import CompanyRepresentative from "../views/CompanyRepresentative.vue";
+import Ownership from "../views/Ownership.vue";
 import PropertyMetadata from "../views/PropertyMetadata.vue";
 import IPAddress from "../views/IPAddress.vue";
 import LastPage from "../views/LastPage.vue";
@@ -59,7 +60,12 @@ const routes = [
     component: LastPage,
     props: true
   },
-
+  {
+    path: "/ownership",
+    name: "Ownership",
+    component: Ownership,
+    props: true
+  },
 
 ];
 

@@ -237,6 +237,14 @@ export default {
     };
   },
   methods: {
+    onNext() {
+      this.$emit("changed");
+      // přechod na další stránku
+      this.$router.push({
+        name: "CompanyRepresentative",
+        params: { id: this.id }
+      });
+    },
     submitForm() {
       this.$refs["ruleForm3"].validate(valid => {
         if (valid) {
@@ -269,14 +277,6 @@ export default {
       this.$refs["ruleForm3"].resetFields();
       this.$refs["numberValidateForm2"].resetFields();
       this.$refs["ruleForm4"].resetFields();
-    },
-    onNext() {
-      this.$emit("changed");
-      // přechod na další stránku
-      this.$router.push({
-        name: "CompanyRepresentative",
-        params: { id: this.id }
-      });
     }
   }
 };
