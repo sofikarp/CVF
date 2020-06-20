@@ -7,7 +7,7 @@
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
-        :model="ruleForm1"
+        :model="form"
         :rules="rules"
         ref="ruleForm1"
         label-width="300px"
@@ -16,11 +16,11 @@
       >
         <!-- Pole Official Company name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Official Company name" prop="companyName">
-          <el-input v-model="ruleForm1.mandatoryFields.companyName"></el-input>
+          <el-input v-model="form.companyName"></el-input>
         </el-form-item>
         <!-- Pole Property Name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Property Name" prop="propertyName">
-          <el-input v-model="ruleForm1.mandatoryFields.propertyName"></el-input>
+          <el-input v-model="form.propertyName"></el-input>
           <br />
           <!-- Tooltip, reaguje na najetí myší-->
 
@@ -31,20 +31,17 @@
 
         <!-- Pole Company number. Validace na number-->
 
-        <el-form-item label="Company Registration Number" prop="registrationNumber">
-          <el-input
-            v-model.number="ruleForm1.mandatoryFields.registrationNumber"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="Company Registration Number" prop="mandatoryFields.registrationNumber">
+          <el-input v-model.number="form.registrationNumber" autocomplete="off"></el-input>
         </el-form-item>
 
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Company Registred Address" prop="registeredAddress">
-          <el-input v-model="ruleForm1.mandatoryFields.registeredAddress"></el-input>
+        <el-form-item label="Company Registred Address" prop="mandatoryFields.registeredAddress">
+          <el-input v-model="form.registeredAddress"></el-input>
         </el-form-item>
         <!-- Pole Trading Address. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Trading Address" prop="tradingAddress">
-          <el-input v-model="ruleForm1.mandatoryFields.tradingAddress"></el-input>
+        <el-form-item label="Trading Address" prop="mandatoryFields.tradingAddress">
+          <el-input v-model="form.tradingAddress"></el-input>
           <br />
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
@@ -60,7 +57,7 @@
         </el-form-item>
         <!-- validace website -->
         <el-form-item label="Website" prop="website">
-          <el-input v-model="ruleForm1.mandatoryFields.website"></el-input>
+          <el-input v-model="form.website"></el-input>
         </el-form-item>
         <br />
         <!-- button -->
@@ -85,12 +82,10 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      ruleForm1: {
+      ruleForm2: {
         companyName: "",
         propertyName: "",
-
         registrationNumber: "",
-
         registeredAddress: "",
         tradingAddress: "",
         website: ""
@@ -110,6 +105,7 @@ export default {
             trigger: "blur"
           }
         ],
+
         propertyName: [
           {
             required: true,
@@ -171,10 +167,9 @@ export default {
       }
     };
   },
-
   methods: {
     onNext() {
-      this.$refs["mandatoryFields"].validate(async valid => {
+      this.$refs["ruleForm1"].validate(async valid => {
         if (valid) {
           this.$emit("changed");
           // přechod na další stránku
@@ -192,7 +187,7 @@ export default {
       this.$router.push({ name: "Guide", params: { id: this.id } });
     },
     resetForm() {
-      this.$refs["mandatoryFields"].resetFields();
+      this.$refs["ruleform1"].resetFields();
     }
   }
 };
