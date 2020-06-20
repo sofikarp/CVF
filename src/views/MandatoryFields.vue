@@ -196,40 +196,40 @@ export default {
         name: "MandatoryFieldsPartTwo",
         params: { id: this.id }
       });
+    },
+    submitForm() {
+      this.$refs["ruleForm1"].validate(valid => {
+        if (valid) {
+          alert("submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+      this.$refs["numberValidateForm"].validate(valid => {
+        if (valid) {
+          alert("Please submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+      this.$refs["ruleForm"].validate(valid => {
+        if (valid) {
+          alert("Please submit!");
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
+    resetForm() {
+      this.$refs["ruleForm1"].resetFields();
+      this.$refs["numberValidateForm"].resetFields();
+      this.$refs["ruleForm"].resetFields();
     }
-    //submitForm(formName) {
-    //   this.$refs["ruleForm1"].validate(valid => {
-    //     if (valid) {
-    //       alert("submit!");
-    //     } else {
-    //       console.log("error submit!!");
-    //      return false;
-    //     }
-    //  });
-    //   this.$refs["numberValidateForm"].validate(valid => {
-    //     if (valid) {
-    //       alert("Please submit!");
-    //     } else {
-    //       console.log("error submit!!");
-    //       return false;
-    //     }
-    //   });
-    //   this.$refs["ruleForm"].validate(valid => {
-    //    if (valid) {
-    //      alert("Please submit!");
-    //    } else {
-    //      console.log("error submit!!");
-    //      return false;
-    //    }
-    //  });
   }
-  //resetForm(formName) {
-  // this.$refs["ruleForm1"].resetFields();
-  //  this.$refs["numberValidateForm"].resetFields();
-  //  this.$refs["ruleForm"].resetFields();
-  // }
 };
-//};
 </script>
 
 <style>

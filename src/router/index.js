@@ -4,6 +4,7 @@ import Create from "../views/Create.vue";
 import Guide from "../views/Guide.vue";
 import MandatoryFields from "../views/MandatoryFields.vue";
 import MandatoryFieldsPartTwo from "../views/MandatoryFieldsPartTwo.vue";
+import CompanyRepresentative from "../views/CompanyRepresentative.vue";
 import PropertyMetadata from "../views/PropertyMetadata.vue";
 
 Vue.use(VueRouter);
@@ -38,7 +39,12 @@ const routes = [
     component: MandatoryFieldsPartTwo,
     props: true
   },
-
+  {
+    path: "/company-representative/:id",
+    name: "CompanyRepresentative",
+    component: CompanyRepresentative,
+    props: true
+  },
   // {
   //   path: "/last-page/:id",
   //   name: "LastPage",
