@@ -379,7 +379,7 @@ export default {
     handleChange(value) {
       console.log(value);
     },
-    submitForm(formName) {
+    submitForm() {
       this.$refs[formName].validate(valid => {
         if (valid) {
           alert("submit!");
@@ -389,7 +389,7 @@ export default {
         }
       });
     },
-    resetForm(formName) {
+    resetForm() {
       this.$refs["ruleForm6"].resetFields();
       this.$refs["numberValidateForm4"].resetFields();
       this.$refs["ruleForm7"].resetFields();
