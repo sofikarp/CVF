@@ -7,7 +7,7 @@
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
-        v-if="form"
+        v-if="form.mandatoryFields"
         :model="form"
         :rules="rules"
         ref="ruleForm1"
@@ -89,26 +89,26 @@ export default {
             {
               required: true,
               message: "Please input Official Company name",
-              trigger: "blur"
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
+              trigger: "change"
             }
           ],
           propertyName: [
             {
               required: true,
               message: "Please input Property name",
-              trigger: "blur"
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
+              trigger: "change"
             }
           ],
           registrationNumber: [
@@ -126,26 +126,26 @@ export default {
             {
               required: true,
               message: "Please input Company Registred Address",
-              trigger: "blur"
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
+              trigger: "change"
             }
           ],
           tradingAddress: [
             {
               required: true,
               message: "Please input Trading Address",
-              trigger: "blur"
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
+              trigger: "change"
             }
           ],
           website: [
@@ -153,7 +153,7 @@ export default {
               type: "url",
               required: true,
               message: "Please input correct URL",
-              trigger: ["blur", "change"]
+              trigger: "change"
             }
           ]
         }
