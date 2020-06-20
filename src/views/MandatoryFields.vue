@@ -16,11 +16,11 @@
       >
         <!-- Pole Official Company name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Official Company name" prop="companyName">
-          <el-input v-model="ruleForm1.companyName"></el-input>
+          <el-input v-model="ruleForm1.mandatoryFields.companyName"></el-input>
         </el-form-item>
         <!-- Pole Property Name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Property Name" prop="propertyName">
-          <el-input v-model="ruleForm1.propertyName"></el-input>
+          <el-input v-model="ruleForm1.mandatoryFields.propertyName"></el-input>
           <br />
           <!-- Tooltip, reaguje na najetí myší-->
 
@@ -32,16 +32,19 @@
         <!-- Pole Company number. Validace na number-->
 
         <el-form-item label="Company Registration Number" prop="registrationNumber">
-          <el-input v-model.number="ruleForm1.registrationNumber" autocomplete="off"></el-input>
+          <el-input
+            v-model.number="ruleForm1.mandatoryFields.registrationNumber"
+            autocomplete="off"
+          ></el-input>
         </el-form-item>
 
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Company Registred Address" prop="registeredAddress">
-          <el-input v-model="ruleForm1.registeredAddress"></el-input>
+          <el-input v-model="ruleForm1.mandatoryFields.registeredAddress"></el-input>
         </el-form-item>
         <!-- Pole Trading Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Trading Address" prop="tradingAddress">
-          <el-input v-model="ruleForm1.tradingAddress"></el-input>
+          <el-input v-model="ruleForm1.mandatoryFields.tradingAddress"></el-input>
           <br />
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
@@ -57,7 +60,7 @@
         </el-form-item>
         <!-- validace website -->
         <el-form-item label="Website" prop="website">
-          <el-input v-model="ruleForm1.website"></el-input>
+          <el-input v-model="ruleForm1.mandatoryFields.website"></el-input>
         </el-form-item>
         <br />
         <!-- button -->
@@ -65,7 +68,7 @@
           <el-button type="primary" @click="submitForm('ruleForm1')">Create</el-button>
           <el-button @click="resetForm('ruleForm1')">Reset</el-button>
         </el-form-item>
-        <BackNext :show-back="false" v-on:next="onNext" />
+        <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
       </el-form>
     </div>
   </LayoutCard>
@@ -171,7 +174,7 @@ export default {
 
   methods: {
     onNext() {
-      this.$refs["ruleForm1"].validate(async valid => {
+      this.$refs["mandatoryFields"].validate(async valid => {
         if (valid) {
           this.$emit("changed");
           // přechod na další stránku
@@ -183,35 +186,13 @@ export default {
           return false;
         }
       });
-
-      // submitForm() {
-      //   this.$refs["ruleForm1"].validate(valid => {
-      //    if (valid) {
-      //       alert("submit!");
-      //     } else {
-      //       console.log("error submit!!");
-      //       return false;
-      //    }
-      //   });
-      //    this.$refs["numberValidateForm"].validate(valid => {
-      //     if (valid) {
-      //       alert("Please submit!");
-      //     } else {
-      //       console.log("error submit!!");
-      //       return false;
-      //     }
-      //   });
-      //    this.$refs["ruleForm"].validate(valid => {
-      //     if (valid) {
-      //       alert("Please submit!");
-      //     } else {
-      //       console.log("error submit!!");
-      //       return false;
-      //     }
-      //    });
+    },
+    onBack() {
+      // přechod na další stránku
+      this.$router.push({ name: "Guide", params: { id: this.id } });
     },
     resetForm() {
-      this.$refs["ruleForm1"].resetFields();
+      this.$refs["mandatoryFields"].resetFields();
     }
   }
 };

@@ -182,7 +182,7 @@
           <el-button type="primary" @click="submitForm('ruleForm3')">Create</el-button>
           <el-button @click="resetForm('ruleForm3')">Reset</el-button>
         </el-form-item>
-        <BackNext :show-back="false" v-on:next="onNext" />
+        <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
       </el-form>
     </div>
   </LayoutCard>
@@ -309,11 +309,18 @@ export default {
         }
       });
     },
+    onBack() {
+      // přechod na další stránku
+      this.$router.push({
+        name: "CompanyRepresentative",
+        params: { id: this.id }
+      });
+    },
     handleChange(value) {
       console.log(value);
     },
     submitForm() {
-      this.$refs["ruleForm6"].validate(valid => {
+      this.$refs["ruleForm3"].validate(valid => {
         if (valid) {
           alert("submit!");
         } else {
@@ -323,12 +330,7 @@ export default {
       });
     },
     resetForm() {
-      this.$refs["ruleForm6"].resetFields();
-      this.$refs["numberValidateForm4"].resetFields();
-      this.$refs["ruleForm7"].resetFields();
-      this.$refs["numberValidateForm5"].resetFields();
-      this.$refs["ruleForm8"].resetFields();
-      this.$refs["numberValidateForm6"].resetFields();
+      this.$refs["ruleForm3"].resetFields();
     }
   }
 };

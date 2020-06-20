@@ -256,6 +256,10 @@ export default {
             params: { id: this.id }
           });
         },
+        onBack() {
+          // přechod na další stránku
+          this.$router.push({ name: "IPAddress", params: { id: this.id } });
+        },
         submitUpload() {
           this.$refs.upload.submit();
         }

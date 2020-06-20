@@ -89,7 +89,7 @@
           <el-button type="primary" @click="submitForm('ruleForm2')">Create</el-button>
           <el-button @click="resetForm('ruleForm2')">Reset</el-button>
         </el-form-item>
-        <BackNext :show-back="false" v-on:next="onNext" />
+        <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
       </el-form>
     </div>
   </LayoutCard>
@@ -228,6 +228,11 @@ export default {
           return false;
         }
       });
+    },
+
+    onBack() {
+      // přechod na další stránku
+      this.$router.push({ name: "MandatoryFields", params: { id: this.id } });
     },
     submitForm() {
       this.$refs["ruleForm2"].validate(valid => {

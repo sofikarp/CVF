@@ -63,7 +63,7 @@
           <el-button type="primary" @click="submitForm('ruleForm4')">Create</el-button>
           <el-button @click="resetForm('ruleForm4')">Reset</el-button>
         </el-form-item>
-        <BackNext :show-back="false" v-on:next="onNext" />
+        <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
       </el-form>
     </div>
   </LayoutCard>
@@ -178,6 +178,13 @@ export default {
         } else {
           return false;
         }
+      });
+    },
+    onBack() {
+      // přechod na další stránku
+      this.$router.push({
+        name: "MandatoryFieldsPartTwo",
+        params: { id: this.id }
       });
     },
     submitForm() {
