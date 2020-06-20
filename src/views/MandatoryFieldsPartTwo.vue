@@ -13,27 +13,16 @@
         class="demo-ruleForm"
         label="top"
       >
-        <!-- For Adyen.... dulezite info-->
-        <el-alert title="For Adyen users only" type="warning" show-icon></el-alert>
-        <!-- For Adyen.... otazka-->
         <el-form-item
-          label="Would you like to accept and receive multiply currencies?"
+          label="Do you accept multiple currencies?"
           prop="form.mandatoryFields.multiplyCurrencies"
+          v-if="form.merchantProvider==='Adyen'"
         >
           <el-radio-group v-model="form.mandatoryFields.multiplyCurrencies">
             <el-radio label="Yes"></el-radio>
             <el-radio label="No"></el-radio>
           </el-radio-group>
         </el-form-item>
-
-        <!-- For Adyen yes.... info-->
-        <el-alert
-          title
-          type="success"
-          description="If yes, please provide in next question all bank accounts per accepted currency."
-          show-icon
-        ></el-alert>
-        <br />
 
         <!-- Formulář - pro pole s validací number-->
 

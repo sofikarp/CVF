@@ -229,7 +229,7 @@
           </el-button>
         </el-upload>
 
-        <BackNext :show-back="false" v-on:next="onNext" />
+        <BackNext v-on:back="onBack" v-on:next="onNext" />
       </el-form>
     </div>
   </LayoutCard>
@@ -248,7 +248,6 @@ export default {
     return {
       methods: {
         onNext() {
-          this.$emit("changed");
           // přechod na další stránku
           this.$router.push({
             name: "LastPage",

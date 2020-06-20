@@ -178,7 +178,10 @@ export default {
     },
     onBack() {
       // přechod na další stránku
-      this.$router.push({ name: "Guide", params: { id: this.id } });
+      this.$router.push({
+        name: "RegionMerchantProvider",
+        params: { id: this.id }
+      });
     },
     resetForm() {
       this.$refs["mandatoryFields"].resetFields();

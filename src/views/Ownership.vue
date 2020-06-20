@@ -261,7 +261,6 @@ export default {
 
         dateBirth: [
           {
-            type: "date",
             required: true,
             message: "Please pick a date",
             trigger: "change"
