@@ -160,7 +160,6 @@ export default {
       }
     };
   },
-
   methods: {
     onNext() {
       this.$refs["ruleForm1"].validate(async valid => {
@@ -184,7 +183,7 @@ export default {
       });
     },
     resetForm() {
-      this.$refs["mandatoryFields"].resetFields();
+      this.$refs["ruleform1"].resetFields();
     }
   }
 };
