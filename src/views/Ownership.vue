@@ -10,8 +10,9 @@
         ownership/control is exercised through a chain of ownership or by means of control other than direct control.
         If no such a person exists in the company, please ll in the details of a client’s senior management members /i.e. managing
         director, CEO, president etc./.
-      </p>pred
-      <UBO :form="form" />test
+      </p>
+      <el-input-number v-model="num" @change="handleChange" :min="1" :max="10"></el-input-number>
+      <UBO :form="{}" />
     </div>
     <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
   </LayoutCard>
@@ -29,7 +30,8 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      ruleForm3: {
+      num: 1,
+      ubo: {
         num: "",
         shares: "",
         firstName: "",
@@ -163,6 +165,8 @@ export default {
     resetForm() {
       this.$refs["ruleForm3"].resetFields();
     }
+    //     pridejUbo() {
+    //      this.Ubo.push({})
   }
 };
 </script>
