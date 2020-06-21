@@ -7,7 +7,6 @@
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
-        v-if="form.mandatoryFields"
         :model="form"
         :rules="rules"
         ref="ruleForm1"
