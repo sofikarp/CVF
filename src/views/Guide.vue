@@ -1,19 +1,19 @@
 <template>
   <div>
     <LayoutCard title>
+      <h1>Welcome to the Customer Verification Form!</h1>
       <div class="text">
-        <h1>Welcome to the Customer Verification Form!</h1>
-        <br />As you have been already informed by our Salse Manager, the part
-        of <strong>onboarding process</strong> is also submitting the data and
+        As you have been already informed by our Salse Manager, the part of
+        <strong>onboarding process</strong> is also submitting the data and
         documents required by our Risk team. We want this process to be as
-        smooth as possible. That's why we are using this web application.
-        <br />
-        We want this to be as comfortable for you as possible so you do not need
-        to fill up the whole form in one session. You just need to fill the
+        smooth as possible. That's why we are using this web application. We
+        want this to be as comfortable for you as possible so you do not need to
+        fill up the whole form in one session. You just need to fill the
         particular step and submit the button
         <strong style="color: #409eff">Next</strong>. At this point your data
         will be saved until your next visit.
-        <br />
+      </div>
+      <div class="text">
         In order for us to enable you the merchant services, our company and its
         payment partners Stripe and Adyen must comply with relevant
         <strong>Anti Money Laundering (AML)</strong> laws designated to combat

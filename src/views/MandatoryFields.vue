@@ -5,8 +5,11 @@
       <h2>Company Information - part I</h2>
       <div class="text">
         Please make sure the Customer Verification Form is signed by either a
-        director or a person that has the authority to bind the company and act
-        on the client’s behalf.
+        <strong
+          >director or a person that has the authority to bind the
+          company</strong
+        >
+        and act on the client’s behalf.
       </div>
       <!-- Formulář-->
 
@@ -239,7 +242,7 @@ h2 {
 .text {
   color: #303133;
   padding: 0 20px 20px 0;
-
+  margin-left: 40px;
   font-size: 14px;
   line-height: 1.5;
 }

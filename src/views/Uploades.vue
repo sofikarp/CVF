@@ -1,18 +1,21 @@
 <template>
   <LayoutCard title>
     <Stepper :active="6" />
-    <el-main>
-      Please upload the requested documents in this section.
-      <br />By clicking on Info you can find document guidelines on each type of requested document.
+    <h2>Uploades</h2>
+    <div class="text">
+      Please <strong>upload the requested documents</strong> in this section.
+      <br />By clicking on Info you can find document guidelines on each type of
+      requested document.
       <br />
-      <el-alert
-        title="● Maximum file size is 15mb.
+    </div>
+    <el-alert
+      title="● Maximum file size is 15mb.
         ● Documents can be in .png, .jpg, or .pdf format.
         ● Documents must be large enough and clear to read."
-        type="warning"
-        show-icon
-      ></el-alert>
-    </el-main>
+      type="warning"
+      show-icon
+    ></el-alert>
+
     <br />
     <UploadComp
       text="1. Business/commercial register extract"
@@ -32,19 +35,47 @@
       fileType="poa-representative"
     />
     <br />
-    <UploadComp text="4. Copy of ID/Passport - UBO 1" :id="id" fileType="id-ubo1" />
+    <UploadComp
+      text="4. Copy of ID/Passport - UBO 1"
+      :id="id"
+      fileType="id-ubo1"
+    />
     <br />
-    <UploadComp text="5. Proof of personal address - UBO 1" :id="id" fileType="poa-ubo1" />
+    <UploadComp
+      text="5. Proof of personal address - UBO 1"
+      :id="id"
+      fileType="poa-ubo1"
+    />
     <br />
-    <UploadComp text="6. Copy of ID/Passport - UBO 2" :id="id" fileType="id-ubo2" />
+    <UploadComp
+      text="6. Copy of ID/Passport - UBO 2"
+      :id="id"
+      fileType="id-ubo2"
+    />
     <br />
-    <UploadComp text="7. Proof of personal address - UBO 2" :id="id" fileType="poa-ubo2" />
+    <UploadComp
+      text="7. Proof of personal address - UBO 2"
+      :id="id"
+      fileType="poa-ubo2"
+    />
     <br />
-    <UploadComp text="8. Copy of ID/Passport - UBO 3" :id="id" fileType="id-ubo3" />
+    <UploadComp
+      text="8. Copy of ID/Passport - UBO 3"
+      :id="id"
+      fileType="id-ubo3"
+    />
     <br />
-    <UploadComp text="9. Proof of personal address - UBO 3" :id="id" fileType="poa-ubo3" />
+    <UploadComp
+      text="9. Proof of personal address - UBO 3"
+      :id="id"
+      fileType="poa-ubo3"
+    />
     <br />
-    <UploadComp text="10. Official bank yccount statement" :id="id" fileType="bank-statement" />
+    <UploadComp
+      text="10. Official bank yccount statement"
+      :id="id"
+      fileType="bank-statement"
+    />
     <br />
     <BackNext v-on:back="onBack" v-on:next="onNext" />
   </LayoutCard>
@@ -64,13 +95,13 @@ export default {
     onNext() {
       this.$router.push({
         name: "LastPage",
-        params: { id: this.id }
+        params: { id: this.id },
       });
     },
     onBack() {
       this.$router.push({ name: "IPAddress", params: { id: this.id } });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -99,5 +130,25 @@ ul {
 }
 .formular {
   margin: 30px;
+}
+h2 {
+  font-size: 18px large;
+  text-align: center;
+  font-weight: bold;
+  color: #409eff;
+  padding-bottom: 20px;
+}
+h3 {
+  font-size: 16px large;
+  text-align: left;
+  font-weight: bold;
+  color: #409eff;
+}
+.text {
+  color: #303133;
+  padding: 0 30px 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-left: 40px;
 }
 </style>

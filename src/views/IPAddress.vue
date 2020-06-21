@@ -2,9 +2,11 @@
   <LayoutCard title="IP Address">
     <Stepper :active="5" />
     <p>
-      For added security, we will need your IP ddress to certify this form. You
-      can find your IP address
-      <a href="https://whatismyipaddress.com/" target="_blank">HERE</a>.
+      For added security, we will need your <strong>IP address</strong> to
+      certify this form. You can find your IP address
+      <a href="https://whatismyipaddress.com/" target="_blank"
+        ><strong>HERE</strong></a
+      >.
     </p>
     <el-form
       :model="form"

@@ -5,10 +5,11 @@
       <h2>Company Representative</h2>
       <div class="text">
         We are required to obtain these types of documents for the specific
-        persons. In this case Company representative who signed the contract.
-        Unwillingness to provide these information/documents will most probably
-        result in rejecting the customer since at that point, we are not
-        compliant with our contractual and legislative obligations.
+        persons. In this case Company representative
+        <strong>who signed the contract</strong>. Unwillingness to provide these
+        information/documents will most probably result in rejecting the
+        customer since at that point, we are not compliant with our contractual
+        and legislative obligations.
       </div>
       <!-- Formulář--vše kromě polí s validací type number-->
 
@@ -218,6 +219,7 @@ h2 {
   padding: 0 20px 20px 0;
   font-size: 14px;
   line-height: 1.5;
+  margin-left: 40px;
 }
 p {
   text-align: center;

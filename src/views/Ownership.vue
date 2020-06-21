@@ -5,11 +5,17 @@
       <h2>Ownership</h2>
       <div class="text">
         We are required to obtain these types of documents for the specific
-        persons. In this case Ultimate Beneficial Owner who signed the contract.
-        Unwillingness to provide these information/documents will most probably
-        result in rejecting the customer since at that point, we are not
-        compliant with our contractual and legislative obligations. Who is
-        Ultimate Benecial Owner? <br />
+        persons. In this case <strong>Ultimate Beneficial Owner</strong> who
+        signed the contract. Unwillingness to provide these
+        information/documents will most probably result in rejecting the
+        customer since at that point, we are not compliant with our contractual
+        and legislative obligations.
+      </div>
+      <br />
+      <div class="text">
+        <strong> ℹ️ Who is Ultimate Benecial Owner? </strong><br />
+      </div>
+      <div class="text">
         Ultimate Benecial Owner /UBO/ is a natural person/s who ultimately owns
         or controls more than 25% of the shares or voting rights in the company.
         It also includes those persons who exercise ultimate effective control
@@ -20,7 +26,8 @@
         company, please ll in the details of a client’s senior management
         members /i.e. managing director, CEO, president etc./.
       </div>
-      <p class="text">Please set the number of UBOs first:</p>
+      <p><strong>Please set the number of UBOs first: </strong></p>
+      <br />
       <el-input-number
         v-model="num"
         @change="handleChange"
@@ -31,12 +38,12 @@
       <UBO :form="form.ownership.ubos[0]" ref="ubos0" />
 
       <div v-show="num > 1">
-        <h3><i class="el-icon-s-custom"></i>UBO 2</h3>
+        <h3><i class="el-icon-s-custom"></i> UBO 2</h3>
         <UBO :form="form.ownership.ubos[1]" ref="ubos1" />
       </div>
 
       <div v-show="num > 2">
-        <h3><i class="el-icon-s-custom"></i>UBO 3</h3>
+        <h3><i class="el-icon-s-custom"></i> UBO 3</h3>
         <UBO :form="form.ownership.ubos[2]" ref="ubos2" />
       </div>
     </div>
@@ -49,11 +56,10 @@ import LayoutCard from "@/components/LayoutCard";
 import Stepper from "@/components/Stepper";
 import BackNext from "@/components/BackNext";
 import UBO from "@/components/UBO";
-import Tooltip from "@/components/Tooltip";
 
 export default {
   name: "Ownership",
-  components: { LayoutCard, Stepper, BackNext, UBO, Tooltip },
+  components: { LayoutCard, Stepper, BackNext, UBO },
   props: ["id", "form"],
   data() {
     return {
@@ -135,7 +141,14 @@ h3 {
 }
 .text {
   color: #303133;
-  padding: 0 20px 20px 0;
+  padding: 0 30px 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-left: 40px;
+}
+.textInfo {
+  color: #303133;
+
   font-size: 14px;
   line-height: 1.5;
 }
@@ -145,5 +158,8 @@ p {
     "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
   font-size: 16px Medium;
   color: #606266;
+}
+title {
+  font-weight: bold;
 }
 </style>
