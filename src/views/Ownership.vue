@@ -12,9 +12,18 @@
         director, CEO, president etc./.
       </p>
       <el-input-number v-model="num" @change="handleChange" :min="1" :max="3"></el-input-number>
-      <UBO :form="form" />
-      <UBO :form="form" />
-      <UBO :form="form" />
+      <h3>
+        <i class="el-icon-s-custom"></i> UBO 1
+      </h3>
+      <UBO :form="form.ownership.ubos[0]" ref="ubos0" />
+      <h3>
+        <i class="el-icon-s-custom"></i>UBO 2
+      </h3>
+      <UBO :form="form.ownership.ubos[1]" ref="ubos1" />
+      <h3>
+        <i class="el-icon-s-custom"></i>UBO 3
+      </h3>
+      <UBO :form="form.ownership.ubos[2]" ref="ubos2" />
     </div>
     <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
   </LayoutCard>
@@ -37,7 +46,12 @@ export default {
   },
   methods: {
     onNext() {
-      this.$refs["ruleForm3"].validate(async valid => {
+      const valid0 = this.$refs["ubos0"].validate();
+      const valid1 = this.$refs["ubos1"].validate();
+      const valid2 = this.$refs["ubos2"].validate();
+      Promise.all([valid0, valid1, valid2]).then(results => {
+        const valid =
+          results[0] === true && results[1] === true && results[2] === true;
         if (valid) {
           this.$emit("changed");
           // přechod na další stránku
@@ -61,7 +75,7 @@ export default {
       console.log(value);
     },
     submitForm() {
-      this.$refs["ruleForm3"].validate(valid => {
+      this.$refs["ubos"].validate(valid => {
         if (valid) {
           alert("submit!");
         } else {
@@ -71,7 +85,7 @@ export default {
       });
     },
     resetForm() {
-      this.$refs["ruleForm3"].resetFields();
+      this.$refs["ubos"].resetFields();
     }
     //     pridejUbo() {
     //      this.Ubo.push({})
