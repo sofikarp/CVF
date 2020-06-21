@@ -22,6 +22,13 @@
             <el-radio label="Yes"></el-radio>
             <el-radio label="No"></el-radio>
           </el-radio-group>
+          <br />
+          <Tooltip
+            title="For yes"
+            content="In next question provide all bank accounts per accepted currency"
+            question="ℹ️"
+            width="350"
+          />
         </el-form-item>
 
         <!-- Formulář - pro pole s validací number-->
@@ -35,16 +42,12 @@
             v-model.number="form.mandatoryFields.iban"
             autocomplete="off"
           ></el-input>
-          <el-popover
-            placement="top-start"
-            type="warning"
-            width="200"
-            trigger="hover"
-            content="If you do not know your IBAN, you can look it up here."
-            class="popup"
-          >
-            <el-button slot="reference">ℹ️</el-button>
-          </el-popover>
+          <Tooltip
+            title="What is an IBAN?"
+            content="IBAN stands for International Bank Account Number and is a number attached to all accounts in the EU countries"
+            question="ℹ️"
+            width="500"
+          />
         </el-form-item>
         <!-- Pole SWIFT. Validace na number-->
         <el-form-item
@@ -55,6 +58,13 @@
             v-model.number="form.mandatoryFields.swift"
             autocomplete="off"
           ></el-input>
+          <Tooltip
+            title="What is Swift / BIC / Routing number?"
+            content="Swift owns and administers the BIC system. The BIC is the same as the bank's SWIFT address.
+            The routing number is a sequence of nine digits used by banks to identify specific financial institutions within the United States."
+            question="ℹ️"
+            width="720"
+          />
         </el-form-item>
 
         <!-- Popover, reaguje na najetí myší-->
@@ -66,6 +76,12 @@
           <el-input
             v-model="form.mandatoryFields.bankAccountCurrency"
           ></el-input>
+          <Tooltip
+            title="What kind of currency?"
+            content="Used for Merchant payments"
+            question="ℹ️"
+            width="300"
+          />
         </el-form-item>
         <!-- Pole Bank A. Holder - name. Validace na vyplněnost - nutná min. délka-->
         <el-form-item
@@ -112,9 +128,10 @@
 import LayoutCard from "@/components/LayoutCard";
 import Stepper from "@/components/Stepper";
 import BackNext from "@/components/BackNext";
+import Tooltip from "@/components/Tooltip";
 export default {
   name: "MandatoryFields",
-  components: { LayoutCard, Stepper, BackNext },
+  components: { LayoutCard, Stepper, BackNext, Tooltip },
   props: ["id", "form"],
   data() {
     return {
