@@ -1,22 +1,17 @@
 <template>
   <LayoutCard title>
     <Stepper :active="6" />
-    <!-- <el-form class="formular">
-      <h2>6. Upload</h2>
-      <el-main>
-        Please upload here the documents requested above:
-        You can nd guidelines on each type of requested document here.
-      </el-main>
-      <div slot="tip" class="el-upload__tip"></div>
-      <el-alert
-        title="Jpg/png files with a size less than 500kb. ● Documents can be in .png, .jpg, or .pdf format
-      ● Documents must be large enough and clear to read"
-        type="warning"
-    show-icon-->
-    <!-- ></el-alert> -->
     <el-main>
       Please upload the requested documents in this section.
       <br />By clicking on Info you can find document guidelines on each type of requested document.
+      <br />
+      <el-alert
+        title="● Maximum file size is 15mb.
+        ● Documents can be in .png, .jpg, or .pdf format.
+        ● Documents must be large enough and clear to read."
+        type="warning"
+        show-icon
+      ></el-alert>
     </el-main>
     <br />
     <UploadComp
@@ -67,25 +62,14 @@ export default {
 
   methods: {
     onNext() {
-      // přechod na další stránku
       this.$router.push({
         name: "LastPage",
         params: { id: this.id }
       });
     },
     onBack() {
-      // přechod na další stránku
       this.$router.push({ name: "IPAddress", params: { id: this.id } });
-    },
-    submitUpload() {
-      this.$refs.upload.submit();
     }
-  },
-  handleRemove(file, fileList) {
-    console.log(file, fileList);
-  },
-  handlePreview(file) {
-    console.log(file);
   }
 };
 </script>

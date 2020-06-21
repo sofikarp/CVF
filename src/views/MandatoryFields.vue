@@ -34,6 +34,12 @@
 
         <el-form-item label="Company Registration Number" prop="mandatoryFields.registrationNumber">
           <el-input v-model.number="form.mandatoryFields.registrationNumber" autocomplete="off"></el-input>
+          <Tooltip
+            title="For Australia"
+            content="ABN - Australian Business Number"
+            question="Info"
+            width="300"
+          />
         </el-form-item>
 
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
@@ -59,6 +65,12 @@
         <!-- validace website -->
         <el-form-item label="Website" prop="mandatoryFields.website">
           <el-input v-model="form.mandatoryFields.website"></el-input>
+          <Tooltip
+            title="Format"
+            content="Fill in using the whole url: http://www.xxxxx.com"
+            question="Info"
+            width="300"
+          />
         </el-form-item>
         <br />
         <!-- button -->
@@ -76,10 +88,11 @@
 import LayoutCard from "@/components/LayoutCard";
 import Stepper from "@/components/Stepper";
 import BackNext from "@/components/BackNext";
+import Tooltip from "@/components/Tooltip";
 
 export default {
   name: "MandatoryFields",
-  components: { LayoutCard, Stepper, BackNext },
+  components: { LayoutCard, Stepper, BackNext, Tooltip },
   props: ["id", "form"],
   data() {
     return {

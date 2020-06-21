@@ -1,13 +1,11 @@
 <template>
   <div>
-    <LayoutCard title="Customer Verification Form">
+    <LayoutCard title>
       <div>
-        <p>
-          Welcome to the Customer Verification!
-          <br />As you have been already informed by our Salse Manager, the part of onboarding process is also submitting data and documents required by our Risk team. We want this process to be as smooth as possible. That's why we are using this web application.
-          <br />
-          <br />We want this to be as comfortable for you as possible so you do not need to fill up the whole form in one session. You just need to fill the particular step and submit the button Next. At this point your data will be saved until your next visit.
-        </p>
+        <h1>Welcome to the Customer Verification Form!</h1>
+        <br />As you have been already informed by our Salse Manager, the part of onboarding process is also submitting data and documents required by our Risk team. We want this process to be as smooth as possible. That's why we are using this web application.
+        <br />
+        <br />We want this to be as comfortable for you as possible so you do not need to fill up the whole form in one session. You just need to fill the particular step and submit the button Next. At this point your data will be saved until your next visit.
       </div>
       <section class="video">
         <iframe
