@@ -2,12 +2,7 @@
   <div>
     <p>{{ text }}</p>
     <br />
-    <el-upload
-      class="upload-demo"
-      ref="upload"
-      :action="`${process.env.VUE_APP_API_URL}/files/upload/${id}/${fileType}`"
-      :file-list="fileList"
-    >
+    <el-upload class="upload-demo" ref="upload" :action="url" :file-list="fileList">
       <el-button type="primary" @click="submitUpload">
         Click to upload
         <i class="el-icon-upload el-icon-right"></i>
@@ -23,6 +18,11 @@ export default {
     return {
       fileList: []
     };
+  },
+  computed: {
+    url() {
+      return `${process.env.VUE_APP_API_URL}/files/upload/${this.id}/${this.fileType}`;
+    }
   }
 };
 </script>

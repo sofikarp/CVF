@@ -14,8 +14,43 @@
         type="warning"
     show-icon-->
     <!-- ></el-alert> -->
+    <el-main>
+      Please upload the requested documents in this section.
+      <br />By clicking on Info you can find document guidelines on each type of requested document.
+    </el-main>
     <br />
-    <UploadComp text="ahoj" :id="id" fileType="busines-register-extract" />
+    <UploadComp
+      text="1. Business/commercial register extract"
+      :id="id"
+      fileType="busines-register-extract"
+    />
+    <br />
+    <UploadComp
+      text="2. Copy of ID/Passport - Company representative"
+      :id="id"
+      fileType="id-representative"
+    />
+    <br />
+    <UploadComp
+      text="3. Proof of personal address - Company representative"
+      :id="id"
+      fileType="poa-representative"
+    />
+    <br />
+    <UploadComp text="4. Copy of ID/Passport - UBO 1" :id="id" fileType="id-ubo1" />
+    <br />
+    <UploadComp text="5. Proof of personal address - UBO 1" :id="id" fileType="poa-ubo1" />
+    <br />
+    <UploadComp text="6. Copy of ID/Passport - UBO 2" :id="id" fileType="id-ubo2" />
+    <br />
+    <UploadComp text="7. Proof of personal address - UBO 2" :id="id" fileType="poa-ubo2" />
+    <br />
+    <UploadComp text="8. Copy of ID/Passport - UBO 3" :id="id" fileType="id-ubo3" />
+    <br />
+    <UploadComp text="9. Proof of personal address - UBO 3" :id="id" fileType="poa-ubo3" />
+    <br />
+    <UploadComp text="10. Official bank yccount statement" :id="id" fileType="bank-statement" />
+    <br />
     <BackNext v-on:back="onBack" v-on:next="onNext" />
   </LayoutCard>
 </template>
