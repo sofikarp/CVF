@@ -27,8 +27,7 @@
         <el-upload
           class="upload-demo"
           ref="upload"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :auto-upload="false"
+          :action="`https://cvf.jiprochazka.com/files/upload/${id}/business-register`"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
           :file-list="fileList"
@@ -230,7 +229,7 @@
           </el-button>
         </el-upload>
 
-        <BackNext :show-back="false" v-on:next="onNext" />
+        <BackNext v-on:back="onBack" v-on:next="onNext" />
       </el-form>
     </div>
   </LayoutCard>
@@ -249,7 +248,6 @@ export default {
     return {
       methods: {
         onNext() {
-          this.$emit("changed");
           // přechod na další stránku
           this.$router.push({
             name: "LastPage",

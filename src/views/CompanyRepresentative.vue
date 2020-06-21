@@ -1,5 +1,5 @@
 <template>
-  <LayoutCard title="Region & Merchant Provider">
+  <LayoutCard title>
     <Stepper :active="3" />
     <div>
       <h2>2. Company Representative</h2>
@@ -10,7 +10,8 @@
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
-        :model="ruleForm4"
+        v-if="form.companyRepresentative"
+        :model="form"
         :rules="rules"
         ref="ruleForm4"
         label-width="300px"
@@ -18,29 +19,29 @@
         label="top"
       >
         <!-- Pole First name. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="First Name" prop="firstName">
-          <el-input v-model="ruleForm4.firstName"></el-input>
+        <el-form-item label="First Name" prop="companyRepresentative.firstName">
+          <el-input v-model="form.companyRepresentative.firstName"></el-input>
         </el-form-item>
         <!-- Pole Last Name. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Last Name" prop="lastName">
-          <el-input v-model="ruleForm4.lastName"></el-input>
+        <el-form-item label="Last Name" prop="companyRepresentative.lastName">
+          <el-input v-model="form.companyRepresentative.lastName"></el-input>
         </el-form-item>
         <!-- Pole Title. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Title or Position" prop="title">
-          <el-input v-model="ruleForm4.title"></el-input>
+        <el-form-item label="Title or Position" prop="companyRepresentative.title">
+          <el-input v-model="form.companyRepresentative.title"></el-input>
         </el-form-item>
         <!-- Pole Date. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Date of Birth" required prop="dateBirth">
+        <el-form-item label="Date of Birth" required prop="companyRepresentative.dateBirth">
           <el-date-picker
             type="date"
             placeholder="Pick a date"
-            v-model="ruleForm4.dateBirth"
+            v-model="form.companyRepresentative.dateBirth"
             style="width: 100%;"
           ></el-date-picker>
         </el-form-item>
         <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Personal Address" prop="personalAddress">
-          <el-input v-model="ruleForm4.personalAddress"></el-input>
+        <el-form-item label="Personal Address" prop="companyRepresentative.personalAddress">
+          <el-input v-model="form.companyRepresentative.personalAddress"></el-input>
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
             placement="top-start"
@@ -55,8 +56,8 @@
         </el-form-item>
 
         <!-- validace email -->
-        <el-form-item label="Email address" prop="emailAddress">
-          <el-input v-model="ruleForm4.emailAddress"></el-input>
+        <el-form-item label="Email address" prop="companyRepresentative.emailAddress">
+          <el-input v-model="form.companyRepresentative.emailAddress"></el-input>
         </el-form-item>
 
         <el-form-item>
@@ -79,89 +80,81 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      ruleForm4: {
-        num: "",
-        firstName: "",
-        lastName: "",
-        title: "",
-        dateBirth: "",
-        personalAddress: "",
-        emailAddress: ""
-      },
       rules: {
-        firstName: [
-          {
-            required: true,
-            message: "Please input First name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        lastName: [
-          {
-            required: true,
-            message: "Please input Last name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        title: [
-          {
-            required: true,
-            message: "Please input Title or position",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
+        companyRepresentative: {
+          firstName: [
+            {
+              required: true,
+              message: "Please input First name",
+              trigger: "blur"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "blur"
+            }
+          ],
+          lastName: [
+            {
+              required: true,
+              message: "Please input Last name",
+              trigger: "blur"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "blur"
+            }
+          ],
+          title: [
+            {
+              required: true,
+              message: "Please input Title or position",
+              trigger: "blur"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "blur"
+            }
+          ],
 
-        dateBirth: [
-          {
-            type: "date",
-            required: true,
-            message: "Please pick a date",
-            trigger: "change"
-          }
-        ],
-        personalAddress: [
-          {
-            required: true,
-            message: "Please input Personal address",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 100,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        emailAddress: [
-          {
-            required: true,
-            message: "Please inputemail address",
-            trigger: "blur"
-          },
-          {
-            type: "email",
-            message: "Please input correct email address",
-            trigger: ["blur", "change"]
-          }
-        ]
+          dateBirth: [
+            {
+              required: true,
+              message: "Please pick a date",
+              trigger: "change"
+            }
+          ],
+          personalAddress: [
+            {
+              required: true,
+              message: "Please input Personal address",
+              trigger: "blur"
+            },
+            {
+              min: 1,
+              max: 100,
+              message: "Length should be min 1",
+              trigger: "blur"
+            }
+          ],
+          emailAddress: [
+            {
+              required: true,
+              message: "Please inputemail address",
+              trigger: "blur"
+            },
+            {
+              type: "email",
+              message: "Please input correct email address",
+              trigger: ["blur", "change"]
+            }
+          ]
+        }
       }
     };
   },
@@ -188,7 +181,7 @@ export default {
       });
     },
     submitForm() {
-      this.$refs["ruleForm5"].validate(valid => {
+      this.$refs["ruleForm4"].validate(valid => {
         if (valid) {
           alert("submit!");
         } else {
@@ -198,7 +191,7 @@ export default {
       });
     },
     resetForm() {
-      this.$refs["ruleForm5"].resetFields();
+      this.$refs["ruleForm4"].resetFields();
     }
   }
 };

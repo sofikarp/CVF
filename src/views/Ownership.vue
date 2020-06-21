@@ -11,8 +11,10 @@
         If no such a person exists in the company, please ll in the details of a client’s senior management members /i.e. managing
         director, CEO, president etc./.
       </p>
-      <el-input-number v-model="num" @change="handleChange" :min="1" :max="10"></el-input-number>
-      <UBO :form="{}" />
+      <el-input-number v-model="num" @change="handleChange" :min="1" :max="3"></el-input-number>
+      <UBO :form="form" />
+      <UBO :form="form" />
+      <UBO :form="form" />
     </div>
     <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
   </LayoutCard>
@@ -30,101 +32,7 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      num: 1,
-      ubo: {
-        num: "",
-        shares: "",
-        firstName: "",
-        lastName: "",
-        title: "",
-        dateBirth: "",
-        personalAddress: ""
-      },
-      rules: {
-        num: [
-          {
-            required: true,
-            message: "Please input",
-            trigger: "blur"
-          },
-          {
-            type: "number",
-            message: "Total % of shares must be a number"
-          }
-        ],
-        firstName: [
-          {
-            required: true,
-            message: "Please input First name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        lastName: [
-          {
-            required: true,
-            message: "Please input Last name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        title: [
-          {
-            required: true,
-            message: "Please input Title or position",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-
-        dateBirth: [
-          {
-            type: "date",
-            required: true,
-            message: "Please pick a date",
-            trigger: "change"
-          }
-        ],
-        personalAddress: [
-          {
-            required: true,
-            message: "Please input Personal address",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 100,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-
-        shares: [
-          {
-            required: true,
-            message: "Total % of shares is required"
-          },
-          {
-            type: "number",
-            message: "Total % of shares must be a number"
-          }
-        ]
-      }
+      num: 1
     };
   },
   methods: {

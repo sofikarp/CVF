@@ -2,7 +2,7 @@
   <div>
     <el-form
       :model="form"
-      ref="ubo"
+      ref="ubos"
       :rules="rules"
       label-width="300px"
       class="demo-ruleForm"
@@ -14,30 +14,29 @@
       </h2>
 
       <!-- Pole First name. Validace na vyplněnost - nutná min. délka-->
-      <el-form-item label="First Name" prop="firstName">
-        <el-input v-model="form.firstName"></el-input>
+      <el-form-item label="First Name" prop="ownership.ubos.firstName">
+        <el-input v-model="form.ownership.ubos.firstName"></el-input>
       </el-form-item>
       <!-- Pole Last Name. Validace na vyplněnost - nutná min. délka-->
-      <el-form-item label="Last Name" prop="lastName">
-        <el-input v-model="form.lastName"></el-input>
+      <el-form-item label="Last Name" prop="ownership.ubos.lastName">
+        <el-input v-model="form.ownership.ubos.lastName"></el-input>
       </el-form-item>
       <!-- Pole Title. Validace na vyplněnost - nutná min. délka-->
-      <el-form-item label="Title or Position" prop="title">
-        <el-input v-model="form.title"></el-input>
+      <el-form-item label="Title or Position" prop="ownership.ubos.title">
+        <el-input v-model="form.ownership.ubos.title"></el-input>
       </el-form-item>
       <!-- Pole Date typ picker. Validace na vyplněnost - nutná min. délka-->
 
-      <el-form-item label="Date of birth" required prop="dateOfBirth">
+      <el-form-item label="Date of birth" required prop="ownership.ubos.dateOfBirth">
         <el-date-picker
-          type="date"
           placeholder="Pick a date"
-          v-model="form.dateOfBirth"
+          v-model="form.ownership.ubos.dateOfBirth"
           style="width: 100%;"
         ></el-date-picker>
       </el-form-item>
       <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
-      <el-form-item label="Personal Address" prop="personalAddress">
-        <el-input v-model="form.personalAddress"></el-input>
+      <el-form-item label="Personal Address" prop="ownership.ubos.personalAddress">
+        <el-input v-model="form.ownership.ubos.personalAddress"></el-input>
         <!-- Popover, reaguje na najetí myší-->
         <el-popover
           placement="top-start"
@@ -54,8 +53,11 @@
       <!-- Total -->
       <!-- Pole procenta pro jednotlive UBO. Validace na number-->
 
-      <el-form-item label="Total % of shares/voting rights in the company" prop="shares">
-        <el-input v-model.number="form.shares" autocomplete="off"></el-input>
+      <el-form-item
+        label="Total % of shares/voting rights in the company"
+        prop="ownership.ubos.shares"
+      >
+        <el-input v-model.number="form.ownership.ubos.shares" autocomplete="off"></el-input>
       </el-form-item>
 
       <br />
@@ -71,98 +73,90 @@
 <script>
 export default {
   name: "UBO",
-
   props: ["id", "form"],
   data() {
     return {
-      ubo: {
-        shares: "",
-        firstName: "",
-        lastName: "",
-        title: "",
-        dateBirth: "",
-        personalAddress: ""
-      },
+      num: 1,
       rules: {
-        firstName: [
-          {
-            required: true,
-            message: "Please input First name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        lastName: [
-          {
-            required: true,
-            message: "Please input Last name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        title: [
-          {
-            required: true,
-            message: "Please input Title or position",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
+        ownership: {
+          ubos: {
+            firstName: [
+              {
+                required: true,
+                message: "Please input First name",
+                trigger: "blur"
+              },
+              {
+                min: 1,
+                max: 50,
+                message: "Length should be min 1",
+                trigger: "blur"
+              }
+            ],
 
-        dateBirth: [
-          {
-            type: "date",
-            required: true,
-            message: "Please pick a date",
-            trigger: "change"
-          }
-        ],
-        personalAddress: [
-          {
-            required: true,
-            message: "Please input Personal address",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 100,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
+            lastName: [
+              {
+                required: true,
+                message: "Please input Last name",
+                trigger: "blur"
+              },
+              {
+                min: 1,
+                max: 50,
+                message: "Length should be min 1",
+                trigger: "blur"
+              }
+            ],
+            title: [
+              {
+                required: true,
+                message: "Please input Title or position",
+                trigger: "blur"
+              },
+              {
+                min: 1,
+                max: 50,
+                message: "Length should be min 1",
+                trigger: "blur"
+              }
+            ],
 
-        shares: [
-          {
-            required: true,
-            message: "Total % of shares is required"
-          },
-          {
-            type: "number",
-            message: "Total % of shares must be a number"
+            dateBirth: [
+              {
+                type: "date",
+                required: true,
+                message: "Please pick a date",
+                trigger: "change"
+              }
+            ],
+            personalAddress: [
+              {
+                required: true,
+                message: "Please input Personal address",
+                trigger: "blur"
+              },
+              {
+                min: 1,
+                max: 100,
+                message: "Length should be min 1",
+                trigger: "blur"
+              }
+            ],
+
+            shares: [
+              {
+                required: true,
+                message: "Total % of shares is required"
+              },
+              {
+                type: "number",
+                message: "Total % of shares must be a number"
+              }
+            ]
           }
-        ]
+        }
       }
     };
-  },
-  methods: {
-    handleChange(value) {
-      console.log(value);
-    }
   }
 };
 </script>

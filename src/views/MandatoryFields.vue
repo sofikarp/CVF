@@ -7,6 +7,7 @@
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
+        v-if="form.mandatoryFields"
         :model="form"
         :rules="rules"
         ref="ruleForm1"
@@ -15,12 +16,12 @@
         label="top"
       >
         <!-- Pole Official Company name. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Official Company name" prop="companyName">
-          <el-input v-model="form.companyName"></el-input>
+        <el-form-item label="Official Company name" prop="mandatoryFields.companyName">
+          <el-input v-model="form.mandatoryFields.companyName"></el-input>
         </el-form-item>
         <!-- Pole Property Name. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Property Name" prop="propertyName">
-          <el-input v-model="form.propertyName"></el-input>
+        <el-form-item label="Property Name" prop="mandatoryFields.propertyName">
+          <el-input v-model="form.mandatoryFields.propertyName"></el-input>
           <br />
           <!-- Tooltip, reaguje na najetí myší-->
 
@@ -32,16 +33,16 @@
         <!-- Pole Company number. Validace na number-->
 
         <el-form-item label="Company Registration Number" prop="mandatoryFields.registrationNumber">
-          <el-input v-model.number="form.registrationNumber" autocomplete="off"></el-input>
+          <el-input v-model.number="form.mandatoryFields.registrationNumber" autocomplete="off"></el-input>
         </el-form-item>
 
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Company Registred Address" prop="mandatoryFields.registeredAddress">
-          <el-input v-model="form.registeredAddress"></el-input>
+          <el-input v-model="form.mandatoryFields.registeredAddress"></el-input>
         </el-form-item>
         <!-- Pole Trading Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item label="Trading Address" prop="mandatoryFields.tradingAddress">
-          <el-input v-model="form.tradingAddress"></el-input>
+          <el-input v-model="form.mandatoryFields.tradingAddress"></el-input>
           <br />
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
@@ -56,8 +57,8 @@
           </el-popover>
         </el-form-item>
         <!-- validace website -->
-        <el-form-item label="Website" prop="website">
-          <el-input v-model="form.website"></el-input>
+        <el-form-item label="Website" prop="mandatoryFields.website">
+          <el-input v-model="form.mandatoryFields.website"></el-input>
         </el-form-item>
         <br />
         <!-- button -->
@@ -82,88 +83,80 @@ export default {
   props: ["id", "form"],
   data() {
     return {
-      ruleForm2: {
-        companyName: "",
-        propertyName: "",
-        registrationNumber: "",
-        registeredAddress: "",
-        tradingAddress: "",
-        website: ""
-      },
-
       rules: {
-        companyName: [
-          {
-            required: true,
-            message: "Please input Official Company name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
+        mandatoryFields: {
+          companyName: [
+            {
+              required: true,
+              message: "Please input Official Company name",
+              trigger: "change"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "change"
+            }
+          ],
+          propertyName: [
+            {
+              required: true,
+              message: "Please input Property name",
+              trigger: "change"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "change"
+            }
+          ],
+          registrationNumber: [
+            {
+              required: true,
+              message: "Company Registration Number  is required"
+            },
+            {
+              type: "number",
+              message: "Company Registration Number must be a number"
+            }
+          ],
 
-        propertyName: [
-          {
-            required: true,
-            message: "Please input Property name",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        registrationNumber: [
-          {
-            required: true,
-            message: "Company Registration Number  is required"
-          },
-          {
-            type: "number",
-            message: "Company Registration Number must be a number"
-          }
-        ],
-
-        registeredAddress: [
-          {
-            required: true,
-            message: "Please input Company Registred Address",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        tradingAddress: [
-          {
-            required: true,
-            message: "Please input Trading Address",
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 50,
-            message: "Length should be min 1",
-            trigger: "blur"
-          }
-        ],
-        website: [
-          {
-            type: "url",
-            required: true,
-            message: "Please input correct URL",
-            trigger: ["blur", "change"]
-          }
-        ]
+          registeredAddress: [
+            {
+              required: true,
+              message: "Please input Company Registred Address",
+              trigger: "change"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "change"
+            }
+          ],
+          tradingAddress: [
+            {
+              required: true,
+              message: "Please input Trading Address",
+              trigger: "change"
+            },
+            {
+              min: 1,
+              max: 50,
+              message: "Length should be min 1",
+              trigger: "change"
+            }
+          ],
+          website: [
+            {
+              type: "url",
+              required: true,
+              message: "Please input correct URL",
+              trigger: "change"
+            }
+          ]
+        }
       }
     };
   },
@@ -184,7 +177,10 @@ export default {
     },
     onBack() {
       // přechod na další stránku
-      this.$router.push({ name: "Guide", params: { id: this.id } });
+      this.$router.push({
+        name: "RegionMerchantProvider",
+        params: { id: this.id }
+      });
     },
     resetForm() {
       this.$refs["ruleform1"].resetFields();

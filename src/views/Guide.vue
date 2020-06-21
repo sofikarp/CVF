@@ -19,9 +19,7 @@
           allowfullscreen
         ></iframe>
       </section>
-      <div class="buttonDiv">
-        <BackNext :show-back="false" v-on:next="onNext" />
-      </div>
+      <BackNext :show-back="false" v-on:next="onNext" />
     </LayoutCard>
   </div>
 </template>
@@ -50,11 +48,6 @@ export default {
 iframe {
   border: 3px solid #409eff;
   border-radius: 4px;
-}
-
-.buttonDiv {
-  display: flex;
-  margin-top: 20px;
 }
 
 .nextButton {

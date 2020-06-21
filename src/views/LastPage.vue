@@ -1,10 +1,10 @@
 <template>
-  <LayoutCard title="Last Page">
+  <LayoutCard title>
     <div>
-      <p>
-        It's done!
-        <br />Thank you for filling the Customer Verification Form, we will come back to you soon.
-      </p>
+      <h1>It's done!</h1>
+      <br />Thank you for filling the Customer Verification Form, we will come back to you soon.
+      <br />
+      <i class="el-icon-success"></i>
     </div>
   </LayoutCard>
 </template>
@@ -16,3 +16,14 @@ export default {
   props: ["id", "form"]
 };
 </script>
+<style scoped>
+i {
+  color: #67c23a;
+  font-size: 72px;
+  margin: 40px;
+}
+
+div {
+  text-align: center;
+}
+</style>
