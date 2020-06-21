@@ -4,8 +4,9 @@
     <div>
       <h2>Company Information - part I</h2>
       <div class="text">
-        Nějaký text, který vysvětlí, co a jak vyplnit.....koho se údaje týkají
-        atd. A že jsou to povinná pole atd....
+        Please make sure the Customer Verification Form is signed by either a
+        director or a person that has the authority to bind the company and act
+        on the client’s behalf.
       </div>
       <!-- Formulář-->
 

@@ -1,9 +1,17 @@
 <template>
-  <LayoutCard title="Region & Merchant Provider">
+  <LayoutCard>
     <Stepper :active="4" />
     <div>
       <h2>Ownership</h2>
       <div class="text">
+        <div class="text">
+          We are required to obtain these types of documents for the specific
+          persons. In this case Ultimate Beneficial Owner who signed the
+          contract. Unwillingness to provide these information/documents will
+          most probably result in rejecting the customer since at that point, we
+          are not compliant with our contractual and legislative obligations.
+        </div>
+        Who is Ultimate Benecial Owner? <br />
         Ultimate Benecial Owner /UBO/ is a natural person/s who ultimately owns
         or controls more than 25% of the shares or voting rights in the company.
         It also includes those persons who exercise ultimate effective control
@@ -14,6 +22,7 @@
         company, please ll in the details of a client’s senior management
         members /i.e. managing director, CEO, president etc./.
       </div>
+      <p class="text">Please set the number of UBOs first:</p>
       <el-input-number
         v-model="num"
         @change="handleChange"

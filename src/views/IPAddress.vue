@@ -2,19 +2,23 @@
   <LayoutCard title="IP Address">
     <Stepper :active="5" />
     <p>
-      For added security, we will need your IP ddress to certify this form. You can find your IP address
-      <a
-        href="https://whatismyipaddress.com/"
-        target="_blank"
-      >HERE</a>.
+      For added security, we will need your IP ddress to certify this form. You
+      can find your IP address
+      <a href="https://whatismyipaddress.com/" target="_blank">HERE</a>.
     </p>
-    <el-form :model="form" :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
+    <el-form
+      :model="form"
+      :rules="rules"
+      ref="form"
+      label-width="100px"
+      class="demo-ruleForm"
+    >
       <el-form-item label="IP Address" prop="ipAddress">
         <el-input v-model="form.ipAddress"></el-input>
         <Tooltip
           title="How to format IP Address"
           content="Please do not forget to add in the '.' - do, the format should be for example XXX.XXX.XXX.XXX"
-          question="Info"
+          question="ℹ️"
           width="500"
         />
       </el-form-item>
@@ -51,25 +55,25 @@ export default {
           {
             required: true,
             message: "Please input IP Address",
-            trigger: "change"
+            trigger: "change",
           },
           {
             validator: validateIpAddress,
-            trigger: "change"
-          }
-        ]
-      }
+            trigger: "change",
+          },
+        ],
+      },
     };
   },
   methods: {
     onNext() {
-      this.$refs["form"].validate(async valid => {
+      this.$refs["form"].validate(async (valid) => {
         if (valid) {
           this.$emit("changed");
           // přechod na další stránku
           this.$router.push({
             name: "Uploades",
-            params: { id: this.id }
+            params: { id: this.id },
           });
         } else {
           return false;
@@ -79,7 +83,7 @@ export default {
     onBack() {
       // přechod na další stránku
       this.$router.push({ name: "Ownership", params: { id: this.id } });
-    }
-  }
+    },
+  },
 };
 </script>
