@@ -56,16 +56,12 @@
             v-model="form.companyRepresentative.personalAddress"
           ></el-input>
           <!-- Popover, reaguje na najetí myší-->
-          <el-popover
-            placement="top-start"
-            type="warning"
-            width="200"
-            trigger="hover"
-            content="Please include post code and country"
-            class="popup"
-          >
-            <el-button slot="reference">ℹ️</el-button>
-          </el-popover>
+          <Tooltip
+            title="Don't forget!"
+            content="Include post code/ZIP and the country"
+            question="ℹ️"
+            width="300"
+          />
         </el-form-item>
 
         <!-- validace email -->
@@ -88,9 +84,10 @@
 import LayoutCard from "@/components/LayoutCard";
 import Stepper from "@/components/Stepper";
 import BackNext from "@/components/BackNext";
+import Tooltip from "@/components/Tooltip";
 export default {
   name: "CompanyRepresentative",
-  components: { LayoutCard, Stepper, BackNext },
+  components: { LayoutCard, Stepper, BackNext, Tooltip },
   props: ["id", "form"],
   data() {
     return {

@@ -35,26 +35,25 @@
       <el-form-item label="Personal Address" prop="personalAddress">
         <el-input v-model="form.personalAddress"></el-input>
         <!-- Popover, reaguje na najetí myší-->
-        <el-popover
-          placement="top-start"
-          type="warning"
-          width="200"
-          trigger="hover"
-          content="Please include post code and country"
-          class="popup"
-        >
-          <el-button slot="reference">ℹ️</el-button>
-        </el-popover>
+        <Tooltip
+          title="Don't forget!"
+          content="Include post code/ZIP and the country"
+          question="ℹ️"
+          width="300"
+        />
       </el-form-item>
 
       <!-- Total -->
       <!-- Pole procenta pro jednotlive UBO. Validace na number-->
 
-      <el-form-item
-        label="Total % of shares/voting rights in the company"
-        prop="shares"
-      >
+      <el-form-item label="Amount of shares" prop="shares">
         <el-input v-model.number="form.shares" autocomplete="off"></el-input>
+        <Tooltip
+          title="Format of the field"
+          content="Total % of shares / voting rights in the company"
+          question="ℹ️"
+          width="300"
+        />
       </el-form-item>
 
       <br />
@@ -63,8 +62,10 @@
 </template>
 
 <script>
+import Tooltip from "../components/Tooltip";
 export default {
   name: "UBO",
+  components: { Tooltip },
   props: ["id", "form"],
   methods: {
     validate() {
