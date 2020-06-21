@@ -2,8 +2,10 @@
   <LayoutCard title>
     <div>
       <h1>It's done!</h1>
-      <br />Thank you for filling the Customer Verification Form, we will come back to you soon.
+      <br />Thank you for filling the Customer Verification Form, we will come
+      back to you soon.
       <br />
+
       <i class="el-icon-success"></i>
     </div>
   </LayoutCard>
@@ -13,7 +15,7 @@ import LayoutCard from "@/components/LayoutCard";
 export default {
   name: "last-page",
   components: { LayoutCard },
-  props: ["id", "form"]
+  props: ["id", "form"],
 };
 </script>
 <style scoped>

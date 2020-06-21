@@ -6,19 +6,20 @@
     :title="title"
     :content="content"
   >
-    <small class="tooltip" slot="reference">{{question}}</small>
+    <small class="tooltip" slot="reference">{{ question }}</small>
   </el-popover>
 </template>
 <script>
 export default {
   name: "tooltip",
-  props: ["title", "content", "question", "width"]
+  props: ["title", "content", "question", "width"],
 };
 </script>
 <style scoped>
 .tooltip {
   color: #409eff;
   cursor: pointer;
+  font-size: 20px;
 }
 .tooltip:hover {
   text-decoration: underline;

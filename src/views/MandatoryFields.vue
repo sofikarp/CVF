@@ -1,5 +1,5 @@
 <template>
-  <LayoutCard title="Region & Merchant Provider">
+  <LayoutCard>
     <Stepper :active="1" />
     <div>
       <h2>Company Information - part I</h2>
@@ -30,14 +30,12 @@
           <br />
           <!-- Tooltip, reaguje na najetí myší-->
 
-          <el-tooltip
-            class="item"
-            effect="light"
-            content="Doing business as"
-            placement="top-start"
-          >
-            <el-button>ℹ️ What is Property name?</el-button>
-          </el-tooltip>
+          <Tooltip
+            title="What is property name?"
+            content="Name of the hotel or property"
+            question="ℹ️"
+            width="300"
+          />
         </el-form-item>
 
         <!-- Pole Company number. Validace na number-->
@@ -53,14 +51,14 @@
           <Tooltip
             title="For Australia"
             content="ABN - Australian Business Number"
-            question=" ℹ️ Info"
+            question="ℹ️"
             width="300"
           />
         </el-form-item>
 
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item
-          label="Company Registred Address"
+          label="Company Registered Address"
           prop="mandatoryFields.registeredAddress"
         >
           <el-input v-model="form.mandatoryFields.registeredAddress"></el-input>
@@ -73,24 +71,20 @@
           <el-input v-model="form.mandatoryFields.tradingAddress"></el-input>
           <br />
           <!-- Popover, reaguje na najetí myší-->
-          <el-popover
-            placement="top-start"
-            type="warning"
-            width="200"
-            trigger="hover"
-            content="`This is the location from where the company conducts its business; it can also be the address of the hotel/property.`"
-            class="popup"
-          >
-            <el-button slot="reference">ℹ️ What is Trading address</el-button>
-          </el-popover>
+          <Tooltip
+            title="What is trading/business address?"
+            content="Location from where the company conduts its business, can also be the address of the hotel or property"
+            question="ℹ️"
+            width="500"
+          />
         </el-form-item>
         <!-- validace website -->
         <el-form-item label="Website" prop="mandatoryFields.website">
           <el-input v-model="form.mandatoryFields.website"></el-input>
           <Tooltip
-            title="Format"
+            title="Required Format"
             content="Fill in using the whole url: http://www.xxxxx.com"
-            question="Info"
+            question="ℹ️"
             width="300"
           />
         </el-form-item>
