@@ -2,8 +2,8 @@
   <LayoutCard title="Region & Merchant Provider">
     <Stepper :active="4" />
     <div>
-      <h2>4. Ownership</h2>
-      <p>
+      <h2>Ownership</h2>
+      <div class="text">
         Ultimate Benecial Owner /UBO/ is a natural person/s who ultimately owns
         or controls more than 25% of the shares or voting rights in the company.
         It also includes those persons who exercise ultimate effective control
@@ -13,7 +13,7 @@
         of control other than direct control. If no such a person exists in the
         company, please ll in the details of a client’s senior management
         members /i.e. managing director, CEO, president etc./.
-      </p>
+      </div>
       <el-input-number
         v-model="num"
         @change="handleChange"
@@ -103,7 +103,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .popup {
   width: 10px;
   background-color: #e6a23c;
@@ -116,7 +116,20 @@ h2 {
   font-size: 18px large;
   text-align: center;
   font-weight: bold;
+  color: #409eff;
+  padding-bottom: 20px;
+}
+h3 {
+  font-size: 16px large;
+  text-align: left;
+  font-weight: bold;
+  color: #409eff;
+}
+.text {
   color: #303133;
+  padding: 0 20px 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
 }
 p {
   text-align: left;

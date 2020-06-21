@@ -3,10 +3,10 @@
     <Stepper :active="1" />
     <div>
       <h2>Company Information - part I</h2>
-      <el-main
-        >Nějaký text, který vysvětlí, co a jak vyplnit.....koho se údaje týkají
-        atd. A že jsou to povinná pole atd....</el-main
-      >
+      <div class="text">
+        Nějaký text, který vysvětlí, co a jak vyplnit.....koho se údaje týkají
+        atd. A že jsou to povinná pole atd....
+      </div>
       <!-- Formulář-->
 
       <el-form
@@ -233,5 +233,13 @@ h2 {
   text-align: center;
   font-weight: bold;
   color: #409eff;
+  padding-bottom: 20px;
+}
+.text {
+  color: #303133;
+  padding: 0 20px 20px 0;
+
+  font-size: 14px;
+  line-height: 1.5;
 }
 </style>

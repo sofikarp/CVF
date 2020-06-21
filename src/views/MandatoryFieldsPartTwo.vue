@@ -2,7 +2,7 @@
   <LayoutCard title="Region & Merchant Provider">
     <Stepper :active="2" />
     <div>
-      <h2>2. Company Information - part II</h2>
+      <h2>Company Information - part II</h2>
       <!-- Formulář Company representative 2. část-->
       <el-form
         v-if="form.mandatoryFields"
@@ -242,7 +242,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .popup {
   width: 10px;
   background-color: #e6a23c;
@@ -255,7 +255,8 @@ h2 {
   font-size: 18px large;
   text-align: center;
   font-weight: bold;
-  color: #303133;
+  color: #409eff;
+  padding-bottom: 20px;
 }
 p {
   text-align: center;

@@ -2,12 +2,12 @@
   <LayoutCard title>
     <Stepper :active="3" />
     <div>
-      <h2>2. Company Representative</h2>
-      <el-main>
+      <h2>Company Representative</h2>
+      <div class="text">
         Please make sure the Agreement is signed by either a director or a
         person that has the authority to bind the company and act on the
         client’s behalf.
-      </el-main>
+      </div>
       <!-- Formulář--vše kromě polí s validací type number-->
 
       <el-form
@@ -198,7 +198,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .popup {
   width: 10px;
   background-color: #e6a23c;
@@ -211,7 +211,14 @@ h2 {
   font-size: 18px large;
   text-align: center;
   font-weight: bold;
+  color: #409eff;
+  padding-bottom: 20px;
+}
+.text {
   color: #303133;
+  padding: 0 20px 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
 }
 p {
   text-align: center;

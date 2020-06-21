@@ -4,13 +4,14 @@
       <div class="text">
         <h1>Welcome to the Customer Verification Form!</h1>
         <br />As you have been already informed by our Salse Manager, the part
-        of onboarding process is also submitting data and documents required by
-        our Risk team. We want this process to be as smooth as possible. That's
-        why we are using this web application.
+        of <strong>onboarding process</strong> is also submitting data and
+        documents required by our Risk team. We want this process to be as
+        smooth as possible. That's why we are using this web application.
         <br />
         <br />We want this to be as comfortable for you as possible so you do
         not need to fill up the whole form in one session. You just need to fill
-        the particular step and submit the button Next. At this point your data
+        the particular step and submit the button
+        <strong style="color: #409eff">Next</strong>. At this point your data
         will be saved until your next visit.
       </div>
       <div class="container">
@@ -22,7 +23,6 @@
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            class="responsive-iframe"
           ></iframe>
         </section>
       </div>
@@ -62,14 +62,21 @@ iframe {
 }
 
 h1 {
-  font-size: 20px large;
+  font-size: 22px large;
   text-align: center;
   font-weight: bold;
   color: #409eff;
 }
 .text {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   margin: 40px;
+}
+@media screen and (max-width: 768px) {
+  iframe {
+    width: 390px;
+    height: auto;
+    text-align: center;
+  }
 }
 </style>
