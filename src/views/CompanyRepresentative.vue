@@ -4,8 +4,9 @@
     <div>
       <h2>2. Company Representative</h2>
       <el-main>
-        Please make sure the Agreement is signed by either a director or a person that has the authority to bind the company and
-        act on the client’s behalf.
+        Please make sure the Agreement is signed by either a director or a
+        person that has the authority to bind the company and act on the
+        client’s behalf.
       </el-main>
       <!-- Formulář--vše kromě polí s validací type number-->
 
@@ -27,11 +28,18 @@
           <el-input v-model="form.companyRepresentative.lastName"></el-input>
         </el-form-item>
         <!-- Pole Title. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Title or Position" prop="companyRepresentative.title">
+        <el-form-item
+          label="Title or Position"
+          prop="companyRepresentative.title"
+        >
           <el-input v-model="form.companyRepresentative.title"></el-input>
         </el-form-item>
         <!-- Pole Date. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Date of Birth" required prop="companyRepresentative.dateBirth">
+        <el-form-item
+          label="Date of Birth"
+          required
+          prop="companyRepresentative.dateBirth"
+        >
           <el-date-picker
             type="date"
             placeholder="Pick a date"
@@ -40,8 +48,13 @@
           ></el-date-picker>
         </el-form-item>
         <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item label="Personal Address" prop="companyRepresentative.personalAddress">
-          <el-input v-model="form.companyRepresentative.personalAddress"></el-input>
+        <el-form-item
+          label="Personal Address"
+          prop="companyRepresentative.personalAddress"
+        >
+          <el-input
+            v-model="form.companyRepresentative.personalAddress"
+          ></el-input>
           <!-- Popover, reaguje na najetí myší-->
           <el-popover
             placement="top-start"
@@ -56,14 +69,15 @@
         </el-form-item>
 
         <!-- validace email -->
-        <el-form-item label="Email address" prop="companyRepresentative.emailAddress">
-          <el-input v-model="form.companyRepresentative.emailAddress"></el-input>
+        <el-form-item
+          label="Email address"
+          prop="companyRepresentative.emailAddress"
+        >
+          <el-input
+            v-model="form.companyRepresentative.emailAddress"
+          ></el-input>
         </el-form-item>
 
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm4')">Create</el-button>
-          <el-button @click="resetForm('ruleForm4')">Reset</el-button>
-        </el-form-item>
         <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
       </el-form>
     </div>
@@ -86,87 +100,87 @@ export default {
             {
               required: true,
               message: "Please input First name",
-              trigger: "blur"
+              trigger: "blur",
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
-            }
+              trigger: "blur",
+            },
           ],
           lastName: [
             {
               required: true,
               message: "Please input Last name",
-              trigger: "blur"
+              trigger: "blur",
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
-            }
+              trigger: "blur",
+            },
           ],
           title: [
             {
               required: true,
               message: "Please input Title or position",
-              trigger: "blur"
+              trigger: "blur",
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "blur"
-            }
+              trigger: "blur",
+            },
           ],
 
           dateBirth: [
             {
               required: true,
               message: "Please pick a date",
-              trigger: "change"
-            }
+              trigger: "change",
+            },
           ],
           personalAddress: [
             {
               required: true,
               message: "Please input Personal address",
-              trigger: "blur"
+              trigger: "blur",
             },
             {
               min: 1,
               max: 100,
               message: "Length should be min 1",
-              trigger: "blur"
-            }
+              trigger: "blur",
+            },
           ],
           emailAddress: [
             {
               required: true,
               message: "Please inputemail address",
-              trigger: "blur"
+              trigger: "blur",
             },
             {
               type: "email",
               message: "Please input correct email address",
-              trigger: ["blur", "change"]
-            }
-          ]
-        }
-      }
+              trigger: ["blur", "change"],
+            },
+          ],
+        },
+      },
     };
   },
   methods: {
     onNext() {
-      this.$refs["ruleForm4"].validate(async valid => {
+      this.$refs["ruleForm4"].validate(async (valid) => {
         if (valid) {
           this.$emit("changed");
           // přechod na další stránku
           this.$router.push({
             name: "Ownership",
-            params: { id: this.id }
+            params: { id: this.id },
           });
         } else {
           return false;
@@ -177,26 +191,13 @@ export default {
       // přechod na další stránku
       this.$router.push({
         name: "MandatoryFieldsPartTwo",
-        params: { id: this.id }
+        params: { id: this.id },
       });
     },
-    submitForm() {
-      this.$refs["ruleForm4"].validate(valid => {
-        if (valid) {
-          alert("submit!");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
-    },
-    resetForm() {
-      this.$refs["ruleForm4"].resetFields();
-    }
-  }
+  },
 };
 </script>
- 
+
 <style>
 .popup {
   width: 10px;

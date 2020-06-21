@@ -25,7 +25,11 @@
       <!-- Pole Date typ picker. Validace na vyplněnost - nutná min. délka-->
 
       <el-form-item label="Date of birth" required prop="dateOfBirth">
-        <el-date-picker placeholder="Pick a date" v-model="form.dateOfBirth" style="width: 100%;"></el-date-picker>
+        <el-date-picker
+          placeholder="Pick a date"
+          v-model="form.dateOfBirth"
+          style="width: 100%;"
+        ></el-date-picker>
       </el-form-item>
       <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
       <el-form-item label="Personal Address" prop="personalAddress">
@@ -46,16 +50,14 @@
       <!-- Total -->
       <!-- Pole procenta pro jednotlive UBO. Validace na number-->
 
-      <el-form-item label="Total % of shares/voting rights in the company" prop="shares">
+      <el-form-item
+        label="Total % of shares/voting rights in the company"
+        prop="shares"
+      >
         <el-input v-model.number="form.shares" autocomplete="off"></el-input>
       </el-form-item>
 
       <br />
-
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('form')">Create</el-button>
-        <el-button @click="resetForm('form')">Reset</el-button>
-      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -66,11 +68,11 @@ export default {
   props: ["id", "form"],
   methods: {
     validate() {
-      const result = new Promise(resolve => {
+      const result = new Promise((resolve) => {
         this.$refs["ubos"].validate(resolve);
       });
       return result;
-    }
+    },
   },
   data() {
     return {
@@ -82,100 +84,100 @@ export default {
             lastName: "",
             dateOfBirth: "",
             personalAddress: "",
-            shares: ""
+            shares: "",
           },
           {
             firstName: "",
             lastName: "",
             dateOfBirth: "",
             personalAddress: "",
-            shares: ""
+            shares: "",
           },
           {
             firstName: "",
             lastName: "",
             dateOfBirth: "",
             personalAddress: "",
-            shares: ""
-          }
-        ]
+            shares: "",
+          },
+        ],
       },
       rules: {
         firstName: [
           {
             required: true,
             message: "Please input First name",
-            trigger: "blur"
+            trigger: "blur",
           },
           {
             min: 1,
             max: 50,
             message: "Length should be min 1",
-            trigger: "blur"
-          }
+            trigger: "blur",
+          },
         ],
 
         lastName: [
           {
             required: true,
             message: "Please input Last name",
-            trigger: "blur"
+            trigger: "blur",
           },
           {
             min: 1,
             max: 50,
             message: "Length should be min 1",
-            trigger: "blur"
-          }
+            trigger: "blur",
+          },
         ],
         title: [
           {
             required: true,
             message: "Please input Title or position",
-            trigger: "blur"
+            trigger: "blur",
           },
           {
             min: 1,
             max: 50,
             message: "Length should be min 1",
-            trigger: "blur"
-          }
+            trigger: "blur",
+          },
         ],
 
         dateOfBirth: [
           {
             required: true,
             message: "Please pick a date",
-            trigger: "change"
-          }
+            trigger: "change",
+          },
         ],
         personalAddress: [
           {
             required: true,
             message: "Please input Personal address",
-            trigger: "blur"
+            trigger: "blur",
           },
           {
             min: 1,
             max: 100,
             message: "Length should be min 1",
-            trigger: "blur"
-          }
+            trigger: "blur",
+          },
         ],
 
         shares: [
           {
             required: true,
-            message: "Total % of shares is required"
+            message: "Total % of shares is required",
           },
           {
             type: "number",
-            message: "Total % of shares must be a number"
-          }
-        ]
-      }
+            message: "Total % of shares must be a number",
+          },
+        ],
+      },
     };
-  }
+  },
 };
 </script>
 
