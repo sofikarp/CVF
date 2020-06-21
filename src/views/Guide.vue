@@ -13,22 +13,31 @@
         <strong style="color: #409eff">Next</strong>. At this point your data
         will be saved until your next visit.
       </div>
-      <div class="text">
-        In order for us to enable you the merchant services, our company and its
-        payment partners Stripe and Adyen must comply with relevant
-        <strong>Anti Money Laundering (AML)</strong> laws designated to combat
-        money laundering and terrorist financing. These laws force us to
-        proactively monitor our clients and apply certain measures and
-        procedures to effectively comply with those rules. For these purposes,
-        we have to go through the
-        <strong>Know Your Customer (KYC)</strong> process and collect certain
-        information and documents about our customers and their business.
-        <br />
-        These requirements are market standards across the financial industry
-        and apply to banks, insurance companies, exchange institutions,
-        electronic money institutions and other financial undertakings including
-        the payment service providers.
-      </div>
+      <el-collapse v-model="activeName" accordion class="text">
+        <el-collapse-item
+          title="ℹ️ Why Know Your Customer (KYC) process ?"
+          name="2"
+        >
+          <div>
+            In order for us to enable you the merchant services, our company and
+            its payment partners Stripe and Adyen must comply with relevant
+            <strong>Anti Money Laundering (AML)</strong> laws designated to
+            combat money laundering and terrorist financing. These laws force us
+            to proactively monitor our clients and apply certain measures and
+            procedures to effectively comply with those rules. For these
+            purposes, we have to go through the
+            <strong>Know Your Customer (KYC)</strong> process and collect
+            certain information and documents about our customers and their
+            business.
+            <br />
+            These requirements are market standards across the financial
+            industry and apply to banks, insurance companies, exchange
+            institutions, electronic money institutions and other financial
+            undertakings including the payment service providers.
+          </div>
+        </el-collapse-item>
+      </el-collapse>
+
       <div class="container">
         <section class="video">
           <iframe
@@ -85,7 +94,7 @@ h1 {
 .text {
   font-size: 16px;
   line-height: 1.5;
-  margin: 40px;
+  margin: 20px;
 }
 @media screen and (max-width: 768px) {
   iframe {
