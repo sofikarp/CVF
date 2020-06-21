@@ -42,10 +42,11 @@ import LayoutCard from "@/components/LayoutCard";
 import Stepper from "@/components/Stepper";
 import BackNext from "@/components/BackNext";
 import UBO from "@/components/UBO";
+import Tooltip from "@/components/Tooltip";
 
 export default {
   name: "Ownership",
-  components: { LayoutCard, Stepper, BackNext, UBO },
+  components: { LayoutCard, Stepper, BackNext, UBO, Tooltip },
   props: ["id", "form"],
   data() {
     return {
