@@ -1,6 +1,13 @@
 <template>
   <div>
-    <p>{{ text }}</p>
+    <p>
+      {{ text }}
+      <InfoDialog :title="infoDialogTitle" :width="infoDialogWidth">
+        <div class="text-center">
+          <img :src="infoDialogImageSrc" />
+        </div>
+      </InfoDialog>
+    </p>
     <br />
     <el-upload
       class="upload-demo"
@@ -16,9 +23,19 @@
   </div>
 </template>
 <script>
+import InfoDialog from "@/components/InfoDialog";
+
 export default {
   name: "uploadComp",
-  props: ["text", "id", "fileType"],
+  components: { InfoDialog },
+  props: [
+    "text",
+    "id",
+    "fileType",
+    "infoDialogTitle",
+    "infoDialogImageSrc",
+    "infoDialogWidth",
+  ],
   data() {
     return {
       fileList: [],
@@ -31,3 +48,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.text-center {
+  text-align: center;
+}
+</style>
