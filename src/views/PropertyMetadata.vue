@@ -1,7 +1,12 @@
 <template>
-  <LayoutCard title="Region & Merchant Provider">
+  <LayoutCard>
     <Stepper :active="0" />
-    <el-form class="form" label-position="top" label-width="100px" :model="form">
+    <el-form
+      class="form"
+      label-position="top"
+      label-width="100px"
+      :model="form"
+    >
       <div class="text-center">
         <label class="label">Choose your region</label>
         <el-radio-group v-model="form.region" size="medium">
@@ -33,8 +38,8 @@ export default {
       this.$emit("changed");
       // přechod na další stránku
       this.$router.push({ name: "MandatoryFields", params: { id: this.id } });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

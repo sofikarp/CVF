@@ -2,7 +2,11 @@
   <div id="app">
     <el-container>
       <el-main v-if="isLoaded">
-        <router-view :form="formData.template" v-on:changed="sendDataToApi" />
+        <router-view
+          :form="formData.template"
+          v-on:changed="sendDataToApi"
+          v-on:loaded="onLoaded"
+        />
       </el-main>
     </el-container>
   </div>
@@ -35,7 +39,7 @@ export default {
             bankAccountCurrency: "",
             bankAccountBeneficiaryName: "",
             bankAccountBeneficiaryAddress: "",
-            companyTaxId: ""
+            companyTaxId: "",
           },
           companyRepresentative: {
             firstName: "",
@@ -43,7 +47,7 @@ export default {
             position: "",
             dateOfBirth: "",
             personalAddress: "",
-            email: ""
+            email: "",
           },
           ownership: {
             ubos: [
@@ -52,33 +56,36 @@ export default {
                 lastName: "",
                 dateOfBirth: "",
                 personalAddress: "",
-                shares: ""
+                shares: "",
               },
               {
                 firstName: "",
                 lastName: "",
                 dateOfBirth: "",
                 personalAddress: "",
-                shares: ""
+                shares: "",
               },
               {
                 firstName: "",
                 lastName: "",
                 dateOfBirth: "",
                 personalAddress: "",
-                shares: ""
-              }
-            ]
+                shares: "",
+              },
+            ],
           },
-          ipAddress: ""
-        }
-      }
+          ipAddress: "",
+        },
+      },
     };
   },
   methods: {
+    onLoaded(data) {
+      this.formData = merge(this.formData, data);
+    },
     async sendDataToApi() {
       await put(`/verifications/${this.$route.params.id}`, this.formData);
-    }
+    },
   },
   async mounted() {
     if (this.$route.params.id) {
@@ -86,7 +93,7 @@ export default {
       this.formData = merge(this.formData, res.data);
     }
     this.isLoaded = true;
-  }
+  },
 };
 </script>
 <style scoped>
