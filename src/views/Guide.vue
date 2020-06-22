@@ -70,7 +70,7 @@
             Sales/AM in order to address the answers to your specific questions.
           </div>
         </el-collapse-item>
-        <el-collapse-item title="Q: How long does the KYC/ AML process take?" name="4">
+        <el-collapse-item title="Q: How long does the KYC/ AML process take?" name="5">
           <div>
             This mainly depends on quality and accuracy of the information and documents
             provided by the customers. If all necessary information/documents are provided at
