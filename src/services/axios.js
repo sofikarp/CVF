@@ -3,7 +3,7 @@ import axios from "axios"
 axios.defaults.headers.common["Content-Type"] =
   "application/json; charset=utf-8";
 
-const backend = "https://cvf.jiprochazka.com"
+export const backend = "https://cvf.jiprochazka.com"
 
 // Požedavek post na server - posílání dat na server - používá se v tomto případě Create, požívá se při zakládání
 export const post = (url, data) => {

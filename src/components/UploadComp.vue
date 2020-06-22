@@ -24,7 +24,7 @@
 </template>
 <script>
 import InfoDialog from "@/components/InfoDialog";
-
+import { backend } from "@/services/axios";
 export default {
   name: "uploadComp",
   components: { InfoDialog },
@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     url() {
-      return `${process.env.VUE_APP_API_URL}/files/upload/${this.id}/${this.fileType}`;
+      return `${backend}/files/upload/${this.id}/${this.fileType}`;
     },
   },
 };
