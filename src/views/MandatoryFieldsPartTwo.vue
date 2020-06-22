@@ -34,14 +34,8 @@
         <!-- Formulář - pro pole s validací number-->
 
         <!-- Pole IBAN. Validace na number-->
-        <el-form-item
-          label="IBAN / Bank Account Number"
-          prop="mandatoryFields.iban"
-        >
-          <el-input
-            v-model.number="form.mandatoryFields.iban"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="IBAN / Bank Account Number" prop="mandatoryFields.iban">
+          <el-input v-model.number="form.mandatoryFields.iban" autocomplete="off"></el-input>
           <Tooltip
             title="What is an IBAN?"
             content="IBAN stands for International Bank Account Number and is a number attached to all accounts in the EU countries"
@@ -50,14 +44,8 @@
           />
         </el-form-item>
         <!-- Pole SWIFT. Validace na number-->
-        <el-form-item
-          label="Swift / BIC / Routing Number"
-          prop="mandatoryFields.swift"
-        >
-          <el-input
-            v-model.number="form.mandatoryFields.swift"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="Swift / BIC / Routing Number" prop="mandatoryFields.swift">
+          <el-input v-model.number="form.mandatoryFields.swift" autocomplete="off"></el-input>
           <Tooltip
             title="What is Swift / BIC / Routing number?"
             content="Swift owns and administers the BIC system. The BIC is the same as the bank's SWIFT address.
@@ -69,13 +57,8 @@
 
         <!-- Popover, reaguje na najetí myší-->
         <!-- Pole Bank Currency. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item
-          label="Bank Account Currency"
-          prop="mandatoryFields.bankAccountCurrency"
-        >
-          <el-input
-            v-model="form.mandatoryFields.bankAccountCurrency"
-          ></el-input>
+        <el-form-item label="Bank Account Currency" prop="mandatoryFields.bankAccountCurrency">
+          <el-input v-model="form.mandatoryFields.bankAccountCurrency"></el-input>
           <Tooltip
             title="What kind of currency?"
             content="Used for Merchant payments"
@@ -88,18 +71,14 @@
           label="Bank Account Holder / Beneficiary name"
           prop="mandatoryFields.bankAccountBeneficiaryName"
         >
-          <el-input
-            v-model="form.mandatoryFields.bankAccountBeneficiaryName"
-          ></el-input>
+          <el-input v-model="form.mandatoryFields.bankAccountBeneficiaryName"></el-input>
         </el-form-item>
         <!-- Pole Bank A. Holder - address. Validace na vyplněnost - nutná min. délka-->
         <el-form-item
           label="Bank Account Holder / Beneficiary address"
           prop="mandatoryFields.bankAccountBeneficiaryAddress"
         >
-          <el-input
-            v-model="form.mandatoryFields.bankAccountBeneficiaryAddress"
-          ></el-input>
+          <el-input v-model="form.mandatoryFields.bankAccountBeneficiaryAddress"></el-input>
         </el-form-item>
 
         <!-- validace email -->
@@ -110,10 +89,7 @@
           <el-input v-model="form.mandatoryFields.emailCharge"></el-input>
         </el-form-item>
         <!-- Pole TAX ID. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item
-          label="Company TAX ID"
-          prop="mandatoryFields.companyTaxId"
-        >
+        <el-form-item label="Company TAX ID" prop="mandatoryFields.companyTaxId">
           <el-input v-model="form.mandatoryFields.companyTaxId"></el-input>
         </el-form-item>
         <br />
@@ -141,109 +117,109 @@ export default {
             {
               required: true,
               message: "Please select yes or no",
-              trigger: "change",
-            },
+              trigger: "change"
+            }
           ],
 
           iban: [
             {
               required: true,
-              message: "IBAN is required",
+              message: "IBAN is required"
             },
             {
               type: "number",
-              message: "IBAN must be a number",
-            },
+              message: "IBAN must be a number"
+            }
           ],
           swift: [
             {
               required: true,
-              message: "Swift is required",
+              message: "Swift is required"
             },
             {
               type: "number",
-              message: "Swift must be a number",
-            },
+              message: "Swift must be a number"
+            }
           ],
           bankAccountCurrency: [
             {
               required: true,
               message: "Please input Bank account Currency",
-              trigger: "change",
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "change",
-            },
+              trigger: "change"
+            }
           ],
 
           bankAccountBeneficiaryName: [
             {
               required: true,
               message: "Please input Bank account holder",
-              trigger: "change",
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "change",
-            },
+              trigger: "change"
+            }
           ],
 
           bankAccountBeneficiaryAddress: [
             {
               required: true,
               message: "Please input Bank account holder",
-              trigger: "change",
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "change",
-            },
+              trigger: "change"
+            }
           ],
           emailCharge: [
             {
               required: true,
               message: "Please inputemail address",
-              trigger: "change",
+              trigger: "change"
             },
             {
               type: "email",
               message: "Please input correct email address",
-              trigger: ["change", "change"],
-            },
+              trigger: ["change", "change"]
+            }
           ],
           companyTaxId: [
             {
               required: true,
               message: "Please input Company TAX ID",
-              trigger: "change",
+              trigger: "change"
             },
             {
               min: 1,
               max: 50,
               message: "Length should be min 1",
-              trigger: "change",
-            },
-          ],
-        },
-      },
+              trigger: "change"
+            }
+          ]
+        }
+      }
     };
   },
   methods: {
     onNext() {
-      this.$refs["ruleForm2"].validate(async (valid) => {
+      this.$refs["ruleForm2"].validate(async valid => {
         if (valid) {
           this.$emit("changed");
           // přechod na další stránku
           this.$router.push({
             name: "CompanyRepresentative",
-            params: { id: this.id },
+            params: { id: this.id }
           });
         } else {
           return false;
@@ -254,8 +230,8 @@ export default {
     onBack() {
       // přechod na další stránku
       this.$router.push({ name: "MandatoryFields", params: { id: this.id } });
-    },
-  },
+    }
+  }
 };
 </script>
 

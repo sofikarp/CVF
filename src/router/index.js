@@ -10,7 +10,7 @@ import PropertyMetadata from "../views/PropertyMetadata.vue";
 import IPAddress from "../views/IPAddress.vue";
 import LastPage from "../views/LastPage.vue";
 import Uploades from "../views/Uploades.vue";
-import Uvod from "../views/Uvod.vue";
+import Homepage from "../views/Homepage.vue";
 
 Vue.use(VueRouter);
 
@@ -77,8 +77,8 @@ const routes = [
 
   {
     path: "/",
-    name: "Uvod",
-    component: Uvod,
+    name: "Homepage",
+    component: Homepage,
     props: true
   },
 ];
