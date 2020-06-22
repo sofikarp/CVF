@@ -20,61 +20,82 @@
     <UploadComp
       text="1. Business/commercial register extract"
       :id="id"
-      fileType="busines-register-extract"
+      file-type="busines-register-extract"
+      info-dialog-title="ztesezr"
+      :info-dialog-image-src="require('@/assets/img/example.png')"
+      info-dialog-width="760px"
     />
     <br />
     <UploadComp
       text="2. Copy of ID/Passport - Company representative"
       :id="id"
-      fileType="id-representative"
+      file-type="id-representative"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="3. Proof of personal address - Company representative"
       :id="id"
-      fileType="poa-representative"
+      file-type="poa-representative"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="4. Copy of ID/Passport - UBO 1"
       :id="id"
-      fileType="id-ubo1"
+      file-type="id-ubo1"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="5. Proof of personal address - UBO 1"
       :id="id"
-      fileType="poa-ubo1"
+      file-type="poa-ubo1"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="6. Copy of ID/Passport - UBO 2"
       :id="id"
-      fileType="id-ubo2"
+      file-type="id-ubo2"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="7. Proof of personal address - UBO 2"
       :id="id"
-      fileType="poa-ubo2"
+      file-type="poa-ubo2"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="8. Copy of ID/Passport - UBO 3"
       :id="id"
-      fileType="id-ubo3"
+      file-type="id-ubo3"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
       text="9. Proof of personal address - UBO 3"
       :id="id"
-      fileType="poa-ubo3"
+      file-type="poa-ubo3"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <UploadComp
-      text="10. Official bank yccount statement"
+      text="10. Official bank account statement"
       :id="id"
-      fileType="bank-statement"
+      file-type="bank-statement"
+      info-dialog-title=""
+      info-dialog-image-src=""
     />
     <br />
     <BackNext v-on:back="onBack" v-on:next="onNext" />

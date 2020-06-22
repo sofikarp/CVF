@@ -16,7 +16,10 @@
         will be saved until your next visit.
       </div>
       <el-collapse v-model="activeName" accordion class="text">
-        <el-collapse-item title="Q: Why do we need all of these documents and information" name="1">
+        <el-collapse-item
+          title="Q: Why do we need all of these documents and information?"
+          name="1"
+        >
           <div>
             In order for us to enable you the merchant services, our company and
             its payment partners Stripe and Adyen must comply with relevant
@@ -28,8 +31,8 @@
             <strong>Know Your Customer (KYC)</strong> process and collect
             certain information and documents about our customers and their
             business.
-            <br />These requirements are market standards across the financial
-            industry and apply to banks, insurance companies, exchange
+            <br />These requirements are market standards across the
+            financial industry and apply to banks, insurance companies, exchange
             institutions, electronic money institutions and other financial
             undertakings including the payment service providers.
           </div>
@@ -42,6 +45,45 @@
             We will securely store them in our CRM system for the purposes of a potential audit
             from regulators. Also in accordance with the ‘Stripe/Adyen merchant agreement’ we
             shall submit those information/ documents to Stripe/Adyen via internal API.
+          </div>
+        </el-collapse-item>
+
+        <el-collapse-item
+          title="Q: Are we going to share this information with third parties?"
+          name="3"
+        >
+          <div>
+            Please see the question above. We will only share this information (in accordance
+            with the agreement) with Stripe/Adyen and local regulatory authorities (if applicable).
+          </div>
+        </el-collapse-item>
+        <el-collapse-item
+          title="Q: Can someone from your company help me gather these items and hand hold me?"
+          name="4"
+        >
+          <div>
+            Usually, the requested documents are not publicly available so we will most
+            probably be unable to help you with gathering those documents. However, if you are
+            unsure about what exactly should be provided for your particular company, please
+            hand over your questions to your Sales/Account Manager who will consult it with the
+            Compliance department. They will examine your matter closer and will liaise with
+            Sales/AM in order to address the answers to your specific questions.
+          </div>
+        </el-collapse-item>
+        <el-collapse-item title="Q: How long does the KYC/ AML process take?" name="4">
+          <div>
+            This mainly depends on quality and accuracy of the information and documents
+            provided by the customers. If all necessary information/documents are provided at
+            the outset, and the Compliance team is comfortable with their authenticity, the
+            process might take up to 3 days.
+            If however the documentation/ information provided by the client is not sufficient or
+            there are doubts as to their legitimacy, the Compliance department will have to
+            contact Sales/AM in order to obtain additional documents/information from the client.
+            The duration of the process then can be extended depending on how quickly the
+            client responds.
+            Kindly note, every case is different and it is difficult to provide a firm time frame for
+            the process. There are many other factors in play like complexity of the case, local or
+            legal exceptions, volume of the check, utilization of the analysts etc.
           </div>
         </el-collapse-item>
       </el-collapse>
@@ -69,6 +111,11 @@ export default {
   name: "guide",
   components: { LayoutCard, BackNext },
   props: ["id", "form"],
+  data() {
+    return {
+      activeName: null
+    };
+  },
   methods: {
     onNext() {
       this.$router.push({
