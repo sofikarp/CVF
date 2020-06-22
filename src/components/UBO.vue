@@ -32,28 +32,34 @@
         ></el-date-picker>
       </el-form-item>
       <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
-      <el-form-item label="Personal Address" prop="personalAddress">
+      <el-form-item prop="personalAddress">
+        <span slot="label">
+          Personal Address
+          <Tooltip
+            title="Don't forget!"
+            content="Include post code/ZIP and the country"
+            question="ℹ️"
+            width="300"
+          />
+        </span>
         <el-input v-model="form.personalAddress"></el-input>
         <!-- Popover, reaguje na najetí myší-->
-        <Tooltip
-          title="Don't forget!"
-          content="Include post code/ZIP and the country"
-          question="ℹ️"
-          width="300"
-        />
       </el-form-item>
 
       <!-- Total -->
       <!-- Pole procenta pro jednotlive UBO. Validace na number-->
 
-      <el-form-item label="Amount of shares" prop="shares">
+      <el-form-item prop="shares">
+        <span slot="label">
+          Amount of shares
+          <Tooltip
+            title="Format of the field"
+            content="Total % of shares / voting rights in the company"
+            question="ℹ️"
+            width="300"
+          />
+        </span>
         <el-input v-model.number="form.shares" autocomplete="off"></el-input>
-        <Tooltip
-          title="Format of the field"
-          content="Total % of shares / voting rights in the company"
-          question="ℹ️"
-          width="300"
-        />
       </el-form-item>
 
       <br />

@@ -20,8 +20,7 @@ export default {
   color: #409eff;
   cursor: pointer;
   font-size: 20px;
-}
-.tooltip:hover {
-  text-decoration: underline;
+  display: inline-block;
+  margin-left: 6px;
 }
 </style>

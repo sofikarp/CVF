@@ -8,7 +8,7 @@
         </div>
       </InfoDialog>
     </p>
-    <br />
+
     <el-upload
       class="upload-demo"
       ref="upload"

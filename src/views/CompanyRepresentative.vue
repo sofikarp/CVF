@@ -51,20 +51,20 @@
           ></el-date-picker>
         </el-form-item>
         <!-- Pole Personal Address. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item
-          label="Personal Address"
-          prop="companyRepresentative.personalAddress"
-        >
+        <el-form-item prop="companyRepresentative.personalAddress">
+          <span slot="label">
+            Personal Address
+            <Tooltip
+              title="Don't forget!"
+              content="Include post code/ZIP and the country"
+              question="ℹ️"
+              width="300"
+            />
+          </span>
           <el-input
             v-model="form.companyRepresentative.personalAddress"
           ></el-input>
           <!-- Popover, reaguje na najetí myší-->
-          <Tooltip
-            title="Don't forget!"
-            content="Include post code/ZIP and the country"
-            question="ℹ️"
-            width="300"
-          />
         </el-form-item>
 
         <!-- validace email -->

@@ -12,17 +12,20 @@
       :model="form"
       :rules="rules"
       ref="form"
-      label-width="100px"
+      label-width="300px"
       class="demo-ruleForm"
     >
-      <el-form-item label="IP Address" prop="ipAddress">
+      <el-form-item prop="ipAddress">
+        <span slot="label">
+          IP Address
+          <Tooltip
+            title="How to format IP Address"
+            content="Please do not forget to add in the '.' - do, the format should be for example XXX.XXX.XXX.XXX"
+            question="ℹ️"
+            width="500"
+          />
+        </span>
         <el-input v-model="form.ipAddress"></el-input>
-        <Tooltip
-          title="How to format IP Address"
-          content="Please do not forget to add in the '.' - do, the format should be for example XXX.XXX.XXX.XXX"
-          question="ℹ️"
-          width="500"
-        />
       </el-form-item>
     </el-form>
 

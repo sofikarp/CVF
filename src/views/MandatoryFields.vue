@@ -4,12 +4,8 @@
     <div>
       <h2>Company Information - part I</h2>
       <div class="text">
-        Please make sure the Customer Verification Form is signed by either a
-        <strong
-          >director or a person that has the authority to bind the
-          company</strong
-        >
-        and act on the client’s behalf.
+        Nějaký text, který vysvětlí, co a jak vyplnit.....koho se údaje týkají
+        atd. A že jsou to povinná pole atd....
       </div>
       <!-- Formulář-->
 
@@ -29,35 +25,35 @@
           <el-input v-model="form.mandatoryFields.companyName"></el-input>
         </el-form-item>
         <!-- Pole Property Name. Validace na vyplněnost - nutná min. délka řetězce-->
-        <el-form-item label="Property Name" prop="mandatoryFields.propertyName">
+        <el-form-item prop="mandatoryFields.propertyName">
+          <span slot="label">
+            Property Name
+            <Tooltip
+              title="What is property name?"
+              content="Name of the hotel or property"
+              question="ℹ️"
+              width="300"
+            />
+          </span>
           <el-input v-model="form.mandatoryFields.propertyName"></el-input>
-          <br />
-          <!-- Tooltip, reaguje na najetí myší-->
-
-          <Tooltip
-            title="What is property name?"
-            content="Name of the hotel or property"
-            question="ℹ️"
-            width="300"
-          />
         </el-form-item>
 
         <!-- Pole Company number. Validace na number-->
 
-        <el-form-item
-          label="Company Registration Number"
-          prop="mandatoryFields.registrationNumber"
-        >
+        <el-form-item prop="mandatoryFields.registrationNumber">
+          <span slot="label">
+            Company Registration Number
+            <Tooltip
+              title="For Australia"
+              content="ABN - Australian Business Number"
+              question="ℹ️"
+              width="300"
+            />
+          </span>
           <el-input
             v-model.number="form.mandatoryFields.registrationNumber"
             autocomplete="off"
           ></el-input>
-          <Tooltip
-            title="For Australia"
-            content="ABN - Australian Business Number"
-            question="ℹ️"
-            width="300"
-          />
         </el-form-item>
 
         <!-- Pole Official Company Registred Address. Validace na vyplněnost - nutná min. délka-->
@@ -68,31 +64,31 @@
           <el-input v-model="form.mandatoryFields.registeredAddress"></el-input>
         </el-form-item>
         <!-- Pole Trading Address. Validace na vyplněnost - nutná min. délka-->
-        <el-form-item
-          label="Trading Address"
-          prop="mandatoryFields.tradingAddress"
-        >
+        <el-form-item prop="mandatoryFields.tradingAddress">
+          <span slot="label">
+            Trading Address
+            <Tooltip
+              title="What is trading/business address?"
+              content="Location from where the company conduts its business, can also be the address of the hotel or property"
+              question="ℹ️"
+              width="500"
+            />
+          </span>
           <el-input v-model="form.mandatoryFields.tradingAddress"></el-input>
-          <br />
-          <!-- Popover, reaguje na najetí myší-->
-          <Tooltip
-            title="What is trading/business address?"
-            content="Location from where the company conduts its business, can also be the address of the hotel or property"
-            question="ℹ️"
-            width="500"
-          />
         </el-form-item>
         <!-- validace website -->
-        <el-form-item label="Website" prop="mandatoryFields.website">
+        <el-form-item prop="mandatoryFields.website">
+          <span slot="label">
+            Website
+            <Tooltip
+              title="Required Format"
+              content="Fill in using the whole url: http://www.xxxxx.com"
+              question="ℹ️"
+              width="300"
+            />
+          </span>
           <el-input v-model="form.mandatoryFields.website"></el-input>
-          <Tooltip
-            title="Required Format"
-            content="Fill in using the whole url: http://www.xxxxx.com"
-            question="ℹ️"
-            width="300"
-          />
         </el-form-item>
-        <br />
         <!-- button -->
 
         <BackNext :show-back="true" v-on:next="onNext" v-on:back="onBack" />
@@ -242,7 +238,7 @@ h2 {
 .text {
   color: #303133;
   padding: 0 20px 20px 0;
-  margin-left: 40px;
+
   font-size: 14px;
   line-height: 1.5;
 }
