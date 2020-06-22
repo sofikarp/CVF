@@ -6,17 +6,19 @@
       <img src="./img/oko.gif" />
     </div>
     <div class="buttons">
-      <a href="https://cvf.netlify.app/#/new">
+      <router-link :to="{ name: 'Create' }">
         <el-button type="primary" size="small" class="button"
           >Chci projít formulář jako zadavatel</el-button
         >
-      </a>
+      </router-link>
 
-      <a href="https://cvf.netlify.app/#/guide/5eefa0475b4a6d705e8ea8d8">
+      <router-link
+        :to="{ name: 'Guide', params: { id: '5eefa0475b4a6d705e8ea8d8' } }"
+      >
         <el-button type="primary" size="small" class="button"
           >Chci projít formulář jako klient</el-button
         >
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

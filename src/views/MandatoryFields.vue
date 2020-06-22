@@ -31,7 +31,6 @@
             <Tooltip
               title="What is property name?"
               content="Name of the hotel or property"
-              question="ℹ️"
               width="300"
             />
           </span>
@@ -46,7 +45,6 @@
             <Tooltip
               title="For Australia"
               content="ABN - Australian Business Number"
-              question="ℹ️"
               width="300"
             />
           </span>
@@ -70,7 +68,6 @@
             <Tooltip
               title="What is trading/business address?"
               content="Location from where the company conduts its business, can also be the address of the hotel or property"
-              question="ℹ️"
               width="500"
             />
           </span>
@@ -83,7 +80,6 @@
             <Tooltip
               title="Required Format"
               content="Fill in using the whole url: http://www.xxxxx.com"
-              question="ℹ️"
               width="300"
             />
           </span>

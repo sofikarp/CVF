@@ -21,7 +21,6 @@
           <Tooltip
             title="How to format IP Address"
             content="Please do not forget to add in the '.' - do, the format should be for example XXX.XXX.XXX.XXX"
-            question="ℹ️"
             width="500"
           />
         </span>

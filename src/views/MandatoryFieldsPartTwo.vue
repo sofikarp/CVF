@@ -1,5 +1,5 @@
 <template>
-  <LayoutCard title="Region & Merchant Provider">
+  <LayoutCard>
     <Stepper :active="2" />
     <div>
       <h2>Company Information - part II</h2>
@@ -14,7 +14,7 @@
         label="top"
       >
         <el-form-item
-          prop="form.mandatoryFields.multiplyCurrencies"
+          prop="mandatoryFields.multiplyCurrencies"
           v-if="form.merchantProvider === 'Adyen'"
         >
           <span slot="label">
@@ -22,7 +22,6 @@
             <Tooltip
               title="If yes"
               content="In next question provide all bank accounts per accepted currency"
-              question="ℹ️"
               width="350"
             />
           </span>
@@ -42,7 +41,6 @@
             <Tooltip
               title="What is an IBAN?"
               content="IBAN stands for International Bank Account Number and is a number attached to all accounts in the EU countries"
-              question="ℹ️"
               width="500"
             />
           </span>
@@ -59,7 +57,6 @@
               title="What is Swift / BIC / Routing number?"
               content="Swift owns and administers the BIC system. The BIC is the same as the bank's SWIFT address.
             The routing number is a sequence of nine digits used by banks to identify specific financial institutions within the United States."
-              question="ℹ️"
               width="720"
             />
           </span>
@@ -77,7 +74,6 @@
             <Tooltip
               title="What kind of currency?"
               content="Used for Merchant payments"
-              question="ℹ️"
               width="300"
             />
           </span>

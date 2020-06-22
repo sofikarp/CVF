@@ -57,7 +57,6 @@
             <Tooltip
               title="Don't forget!"
               content="Include post code/ZIP and the country"
-              question="ℹ️"
               width="300"
             />
           </span>

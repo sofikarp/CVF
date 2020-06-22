@@ -38,7 +38,6 @@
           <Tooltip
             title="Don't forget!"
             content="Include post code/ZIP and the country"
-            question="ℹ️"
             width="300"
           />
         </span>
@@ -55,7 +54,6 @@
           <Tooltip
             title="Format of the field"
             content="Total % of shares / voting rights in the company"
-            question="ℹ️"
             width="300"
           />
         </span>
