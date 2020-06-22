@@ -21,81 +21,80 @@
       text="1. Business/commercial register extract"
       :id="id"
       file-type="busines-register-extract"
-      info-dialog-title="ztesezr"
-      :info-dialog-image-src="require('@/assets/img/example.png')"
-      info-dialog-width="760px"
+      :info-dialog-image-src="require('@/assets/img/cvf-register.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="2. Copy of ID/Passport - Company representative"
       :id="id"
       file-type="id-representative"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-id.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="3. Proof of personal address - Company representative"
       :id="id"
       file-type="poa-representative"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-poa.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="4. Copy of ID/Passport - UBO 1"
       :id="id"
       file-type="id-ubo1"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-id.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="5. Proof of personal address - UBO 1"
       :id="id"
       file-type="poa-ubo1"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-poa.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="6. Copy of ID/Passport - UBO 2"
       :id="id"
       file-type="id-ubo2"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-id.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="7. Proof of personal address - UBO 2"
       :id="id"
       file-type="poa-ubo2"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-poa.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="8. Copy of ID/Passport - UBO 3"
       :id="id"
       file-type="id-ubo3"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-id.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="9. Proof of personal address - UBO 3"
       :id="id"
       file-type="poa-ubo3"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-poa.png')"
+      info-dialog-width="700px"
     />
     <br />
     <UploadComp
       text="10. Official bank account statement"
       :id="id"
       file-type="bank-statement"
-      info-dialog-title=""
-      info-dialog-image-src=""
+      :info-dialog-image-src="require('@/assets/img/cvf-bank.png')"
+      info-dialog-width="720px"
     />
     <br />
     <BackNext v-on:back="onBack" v-on:next="onNext" />

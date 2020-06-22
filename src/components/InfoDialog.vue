@@ -1,6 +1,6 @@
 <template>
   <div class="info-dialog">
-    <a class="info" @click="dialogVisible = true">ℹ️</a>
+    <i class="el-icon-info" @click="dialogVisible = true"></i>
 
     <el-dialog
       :title="title"
@@ -38,11 +38,10 @@ export default {
   display: inline-block;
   margin-left: 10px;
 }
-.info {
+
+i {
   cursor: pointer;
   font-size: 20px;
-}
-.info:hover {
-  text-decoration: none;
+  color: rgba(64, 158, 255, 0.95);
 }
 </style>
