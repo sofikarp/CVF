@@ -16,7 +16,7 @@
         will be saved until your next visit.
       </div>
       <el-collapse v-model="activeName" accordion class="text">
-        <el-collapse-item title="ℹ️ Why Know Your Customer (KYC) process ?" name="2">
+        <el-collapse-item title="Q: Why do we need all of these documents and information" name="1">
           <div>
             In order for us to enable you the merchant services, our company and
             its payment partners Stripe and Adyen must comply with relevant
@@ -32,6 +32,16 @@
             industry and apply to banks, insurance companies, exchange
             institutions, electronic money institutions and other financial
             undertakings including the payment service providers.
+          </div>
+        </el-collapse-item>
+        <el-collapse-item
+          title="Q: What are we going to do with these documents/information?"
+          name="2"
+        >
+          <div>
+            We will securely store them in our CRM system for the purposes of a potential audit
+            from regulators. Also in accordance with the ‘Stripe/Adyen merchant agreement’ we
+            shall submit those information/ documents to Stripe/Adyen via internal API.
           </div>
         </el-collapse-item>
       </el-collapse>
