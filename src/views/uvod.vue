@@ -1,120 +1,29 @@
 <template>
-  <div id="app">
-    <el-container>
-      <el-main v-if="isLoaded">
-        <router-view :form="formData.template" v-on:changed="sendDataToApi" />
-      </el-main>
-    </el-container>
-    <h2>Neveřejný projekt, který provede klienty náročným KYC procesem</h2>
+  <div class="blok">
+    <h1>Neveřejný projekt, který provede klienty náročným KYC procesem</h1>
     <h3>Chcete si ho vykoušet?</h3>
-    <div class="oko"><img src="./assets/img/oko.gif" /></div>
+    <div class="oko">
+      <img src="./img/oko.gif" />
+    </div>
     <div class="buttons">
-      <div class="button">
-        <a href="https://cvf.netlify.app/#/new"
-          ><el-button type="primary">
-            Chci kompletní formulář jako zadavatel</el-button
-          ></a
-        >
-      </div>
-      <div class="button">
-        <a href="https://cvf.netlify.app/#/guide/5eefa0475b4a6d705e8ea8d8"
-          ><el-button type="primary">
-            Chci projít formulář jako klient</el-button
-          ></a
-        >
-      </div>
+      <a href="https://cvf.netlify.app/#/new">
+        <el-button type="primary" class="button">Chci formulář jako zadavatel</el-button>
+      </a>
+
+      <a href="https://cvf.netlify.app/#/guide/5eefa0475b4a6d705e8ea8d8">
+        <el-button type="primary" class="button">Chci projít formulář jako klient</el-button>
+      </a>
     </div>
   </div>
 </template>
-<script>
-import { get, put } from "@/services/axios";
-import merge from "lodash.merge";
-export default {
-  name: "app",
-  data() {
-    return {
-      isLoaded: false,
-      formData: {
-        template: {
-          property: "",
-          identificator: "",
-          email: "",
-          region: "World",
-          merchantProvider: "Stripe",
-          mandatoryFields: {
-            companyName: "",
-            propertyName: "",
-            registrationNumber: "",
-            registeredAddress: "",
-            tradingAddress: "",
-            website: "",
-            multiplyCurrencies: "",
-            iban: "",
-            swift: "",
-            bankAccountCurrency: "",
-            bankAccountBeneficiaryName: "",
-            bankAccountBeneficiaryAddress: "",
-            companyTaxId: "",
-          },
-          companyRepresentative: {
-            firstName: "",
-            lastName: "",
-            position: "",
-            dateOfBirth: "",
-            personalAddress: "",
-            email: "",
-          },
-          ownership: {
-            ubos: [
-              {
-                firstName: "",
-                lastName: "",
-                dateOfBirth: "",
-                personalAddress: "",
-                shares: "",
-              },
-              {
-                firstName: "",
-                lastName: "",
-                dateOfBirth: "",
-                personalAddress: "",
-                shares: "",
-              },
-              {
-                firstName: "",
-                lastName: "",
-                dateOfBirth: "",
-                personalAddress: "",
-                shares: "",
-              },
-            ],
-          },
-          ipAddress: "",
-        },
-      },
-    };
-  },
-  methods: {
-    async sendDataToApi() {
-      await put(`/verifications/${this.$route.params.id}`, this.formData);
-    },
-  },
-  async mounted() {
-    if (this.$route.params.id) {
-      const res = await get(`/verifications/${this.$route.params.id}`);
-      this.formData = merge(this.formData, res.data);
-    }
-    this.isLoaded = true;
-  },
-};
-</script>
+
 <style scoped>
 #app {
   width: 100%;
 }
 
-h2 {
-  font-size: 18px large;
+h1 {
+  font-size: 25 px large;
   text-align: center;
   font-weight: bold;
   color: #409eff;
@@ -123,7 +32,6 @@ h2 {
 }
 .oko {
   text-align: center;
-
   padding-bottom: 20px;
 }
 .text {
@@ -156,3 +64,4 @@ ul {
   text-align: center;
   font-size: 20px large;
 }
+</style >
