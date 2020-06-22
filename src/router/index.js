@@ -76,7 +76,7 @@ const routes = [
   },
 
   {
-    path: "",
+    path: "/",
     name: "Uvod",
     component: Uvod,
     props: true

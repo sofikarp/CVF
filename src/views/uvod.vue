@@ -7,7 +7,7 @@
     </div>
     <div class="buttons">
       <a href="https://cvf.netlify.app/#/new">
-        <el-button type="primary" class="button">Chci formulář jako zadavatel</el-button>
+        <el-button type="primary" class="button">Chci projít formulář jako zadavatel</el-button>
       </a>
 
       <a href="https://cvf.netlify.app/#/guide/5eefa0475b4a6d705e8ea8d8">
@@ -32,7 +32,8 @@ h1 {
 }
 .oko {
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  padding-top: 20px;
 }
 .text {
   color: #303133;
@@ -46,6 +47,8 @@ h3 {
   text-align: center;
   font-weight: bold;
   color: #303133;
+
+  padding-bottom: 20px;
 }
 ul {
   text-align: center;
