@@ -10,14 +10,13 @@
         want this to be as comfortable for you as possible so you do not need to
         fill up the whole form in one session. You just need to fill the
         particular step and submit the button
-        <strong style="color: #409eff">Next</strong>. At this point your data
+        <strong
+          style="color: #409eff"
+        >Next</strong>. At this point your data
         will be saved until your next visit.
       </div>
       <el-collapse v-model="activeName" accordion class="text">
-        <el-collapse-item
-          title="ℹ️ Why Know Your Customer (KYC) process ?"
-          name="2"
-        >
+        <el-collapse-item title="ℹ️ Why Know Your Customer (KYC) process ?" name="2">
           <div>
             In order for us to enable you the merchant services, our company and
             its payment partners Stripe and Adyen must comply with relevant
@@ -29,8 +28,7 @@
             <strong>Know Your Customer (KYC)</strong> process and collect
             certain information and documents about our customers and their
             business.
-            <br />
-            These requirements are market standards across the financial
+            <br />These requirements are market standards across the financial
             industry and apply to banks, insurance companies, exchange
             institutions, electronic money institutions and other financial
             undertakings including the payment service providers.
@@ -65,10 +63,10 @@ export default {
     onNext() {
       this.$router.push({
         name: "RegionMerchantProvider",
-        params: { id: this.id },
+        params: { id: this.id }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
@@ -96,10 +94,17 @@ h1 {
   line-height: 1.5;
   margin: 20px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 540px) {
   iframe {
-    width: 390px;
-    height: auto;
+    width: 300px;
+
+    text-align: center;
+  }
+}
+@media screen and (min-width: 540px) and (max-width: 960px) {
+  iframe {
+    width: 380px;
+
     text-align: center;
   }
 }

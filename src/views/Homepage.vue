@@ -63,4 +63,16 @@ h3 {
 .el-button {
   font-size: 20px large;
 }
+@media screen and (min-width: 0) and (max-width: 540px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    margin-top: 20px;
+  }
+}
 </style >
