@@ -1,8 +1,8 @@
 <template>
   <el-steps class="stepper" :active="active" finish-status="success">
     <el-step title="Step 1" description="Region & Merchant Provider"></el-step>
-    <el-step title="Step 2" description="Company Information Part I."></el-step>
-    <el-step title="Step 3" description="Company Information Part II."></el-step>
+    <el-step title="Step 2" description="Company Information Part I"></el-step>
+    <el-step title="Step 3" description="Company Information Part II"></el-step>
     <el-step title="Step 4" description="Company Representative"></el-step>
     <el-step title="Step 5" description="Ownership"></el-step>
     <el-step title="Step 6" description="IP Address"></el-step>
@@ -12,7 +12,7 @@
 <script>
 export default {
   name: "stepper",
-  props: ["active"]
+  props: ["active"],
 };
 </script>
 <style scoped>

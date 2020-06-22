@@ -4,8 +4,8 @@
       <h1>It's done!</h1>
       <br />
       <div class="text">
-        <strong>Thank you</strong> for filling the Customer Verification Form,
-        we will come back to you soon.
+        <strong>Thank you</strong> for filling out the customer verification
+        form, we will get back to you soon.
       </div>
       <br />
       <img src="./img/done.gif" />

@@ -1,13 +1,16 @@
 <template>
   <div class="blok">
-    <h1>Neveřejný projekt, který provede klienty náročným KYC procesem</h1>
-    <h3>Chcete si ho vyzkoušet?</h3>
+    <h1>Customer Verification Form</h1>
+    <h2>
+      Neveřejný projekt vznikl v rámci Czechitas Digitální Akademie: Web Praha,
+      jaro 2020
+    </h2>
     <div class="oko">
       <img src="./img/oko.gif" />
     </div>
     <div class="buttons">
       <router-link :to="{ name: 'Create' }">
-        <el-button type="primary" size="small" class="button"
+        <el-button type="primary" size="medium" class="button"
           >Chci projít formulář jako zadavatel</el-button
         >
       </router-link>
@@ -15,7 +18,7 @@
       <router-link
         :to="{ name: 'Guide', params: { id: '5eefa0475b4a6d705e8ea8d8' } }"
       >
-        <el-button type="primary" size="small" class="button"
+        <el-button type="primary" size="medium" class="button"
           >Chci projít formulář jako klient</el-button
         >
       </router-link>

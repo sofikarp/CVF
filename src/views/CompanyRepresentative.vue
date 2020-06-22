@@ -1,5 +1,5 @@
 <template>
-  <LayoutCard title>
+  <LayoutCard>
     <Stepper :active="3" />
     <div>
       <h2>Company Representative</h2>

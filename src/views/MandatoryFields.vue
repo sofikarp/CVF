@@ -4,8 +4,8 @@
     <div>
       <h2>Company Information - part I</h2>
       <div class="text">
-        Nějaký text, který vysvětlí, co a jak vyplnit.....koho se údaje týkají
-        atd. A že jsou to povinná pole atd....
+        Information about your company and real estate will be filled in here.
+        For more information hover over the info icon.
       </div>
       <!-- Formulář-->
 

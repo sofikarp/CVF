@@ -1,13 +1,16 @@
 <template>
-  <LayoutCard title="IP Address">
+  <LayoutCard>
     <Stepper :active="5" />
-    <p>
-      For added security, we will need your <strong>IP address</strong> to
-      certify this form. You can find your IP address
-      <a href="https://whatismyipaddress.com/" target="_blank"
-        ><strong>HERE</strong></a
-      >.
-    </p>
+    <div>
+      <h2>IP Address</h2>
+      <p>
+        For added security, we will need your <strong>IP address</strong> to
+        certify this form. You can find your IP address
+        <a href="https://whatismyipaddress.com/" target="_blank"
+          ><strong>HERE</strong></a
+        >.
+      </p>
+    </div>
     <el-form
       :model="form"
       :rules="rules"
@@ -91,3 +94,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+h2 {
+  font-size: 18px large;
+  text-align: center;
+  font-weight: bold;
+  color: #409eff;
+  padding-bottom: 20px;
+}
+</style>
