@@ -7,11 +7,11 @@
     </div>
     <div class="buttons">
       <a href="https://cvf.netlify.app/#/new">
-        <el-button type="primary" class="button">Chci projít formulář jako zadavatel</el-button>
+        <el-button type="primary" size="small" class="button">Chci projít formulář jako zadavatel</el-button>
       </a>
 
       <a href="https://cvf.netlify.app/#/guide/5eefa0475b4a6d705e8ea8d8">
-        <el-button type="primary" class="button">Chci projít formulář jako klient</el-button>
+        <el-button type="primary" size="small" class="button">Chci projít formulář jako klient</el-button>
       </a>
     </div>
   </div>
@@ -47,14 +47,9 @@ h3 {
   text-align: center;
   font-weight: bold;
   color: #303133;
-
   padding-bottom: 20px;
 }
-ul {
-  text-align: center;
-  font-size: 16px large;
-  list-style-type: none;
-}
+
 .button {
   text-align: center;
   font-size: 20px large;
@@ -63,8 +58,9 @@ ul {
 .buttons {
   display: flex;
   justify-content: space-evenly;
-
   text-align: center;
+}
+.el-button {
   font-size: 20px large;
 }
 </style >
