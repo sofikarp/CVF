@@ -5,7 +5,6 @@
         <router-view :form="formData.template" v-on:changed="sendDataToApi" />
       </el-main>
     </el-container>
-    <div>tttt</div>
   </div>
 </template>
 <script>
