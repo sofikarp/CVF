@@ -2,8 +2,13 @@
   <div>
     <p>{{ text }}</p>
     <br />
-    <el-upload class="upload-demo" ref="upload" :action="url" :file-list="fileList">
-      <el-button type="primary" @click="submitUpload">
+    <el-upload
+      class="upload-demo"
+      ref="upload"
+      :action="url"
+      :file-list="fileList"
+    >
+      <el-button type="primary">
         Click to upload
         <i class="el-icon-upload el-icon-right"></i>
       </el-button>
@@ -16,13 +21,13 @@ export default {
   props: ["text", "id", "fileType"],
   data() {
     return {
-      fileList: []
+      fileList: [],
     };
   },
   computed: {
     url() {
       return `${process.env.VUE_APP_API_URL}/files/upload/${this.id}/${this.fileType}`;
-    }
-  }
+    },
+  },
 };
 </script>

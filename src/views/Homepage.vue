@@ -1,17 +1,21 @@
 <template>
   <div class="blok">
     <h1>Neveřejný projekt, který provede klienty náročným KYC procesem</h1>
-    <h3>Chcete si ho vykoušet?</h3>
+    <h3>Chcete si ho vyzkoušet?</h3>
     <div class="oko">
       <img src="./img/oko.gif" />
     </div>
     <div class="buttons">
       <a href="https://cvf.netlify.app/#/new">
-        <el-button type="primary" size="small" class="button">Chci projít formulář jako zadavatel</el-button>
+        <el-button type="primary" size="small" class="button"
+          >Chci projít formulář jako zadavatel</el-button
+        >
       </a>
 
       <a href="https://cvf.netlify.app/#/guide/5eefa0475b4a6d705e8ea8d8">
-        <el-button type="primary" size="small" class="button">Chci projít formulář jako klient</el-button>
+        <el-button type="primary" size="small" class="button"
+          >Chci projít formulář jako klient</el-button
+        >
       </a>
     </div>
   </div>
@@ -75,4 +79,4 @@ h3 {
     margin-top: 20px;
   }
 }
-</style >
+</style>

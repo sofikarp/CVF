@@ -10,13 +10,14 @@
         want this to be as comfortable for you as possible so you do not need to
         fill up the whole form in one session. You just need to fill the
         particular step and submit the button
-        <strong
-          style="color: #409eff"
-        >Next</strong>. At this point your data
+        <strong style="color: #409eff">Next</strong>. At this point your data
         will be saved until your next visit.
       </div>
       <el-collapse v-model="activeName" accordion class="text">
-        <el-collapse-item title="ℹ️ Why Know Your Customer (KYC) process ?" name="2">
+        <el-collapse-item
+          title="ℹ️ Why Know Your Customer (KYC) process ?"
+          name="2"
+        >
           <div>
             In order for us to enable you the merchant services, our company and
             its payment partners Stripe and Adyen must comply with relevant
@@ -27,9 +28,8 @@
             purposes, we have to go through the
             <strong>Know Your Customer (KYC)</strong> process and collect
             certain information and documents about our customers and their
-            business.
-            <br />These requirements are market standards across the financial
-            industry and apply to banks, insurance companies, exchange
+            business. <br />These requirements are market standards across the
+            financial industry and apply to banks, insurance companies, exchange
             institutions, electronic money institutions and other financial
             undertakings including the payment service providers.
           </div>
@@ -59,14 +59,19 @@ export default {
   name: "guide",
   components: { LayoutCard, BackNext },
   props: ["id", "form"],
+  data() {
+    return {
+      activeName: null,
+    };
+  },
   methods: {
     onNext() {
       this.$router.push({
         name: "RegionMerchantProvider",
-        params: { id: this.id }
+        params: { id: this.id },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
